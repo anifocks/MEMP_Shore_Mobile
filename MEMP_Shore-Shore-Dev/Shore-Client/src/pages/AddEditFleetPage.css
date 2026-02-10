@@ -1,0 +1,527 @@
+/* src/pages/AddEditFleetPage.css */
+
+.modern-fleet-page {
+    padding: 20px 40px;
+    background-color: #fcfcfc;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #111827;
+}
+
+/* --- HEADER & BREADCRUMBS --- */
+.page-header-simple {
+    margin-bottom: 30px;
+}
+
+.breadcrumb-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.breadcrumb-link {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+    color: #111827;
+}
+
+.separator {
+    color: #d1d5db;
+    font-size: 0.8rem;
+}
+
+.current-page {
+    color: #9ca3af;
+}
+
+.page-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111827;
+}
+
+/* --- LAYOUT GRID --- */
+.split-layout-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.left-column {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.right-column {
+    flex: 1;
+}
+
+/* --- CARDS --- */
+.card-shadow {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    border: 1px solid #f3f4f6;
+    overflow: hidden;
+}
+
+/* --- LEFT PROFILE CARD --- */
+.profile-card {
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+}
+
+.upload-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.upload-btn-icon {
+    background: #111827;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border: 2px solid white;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-instruction {
+    margin-bottom: 30px;
+}
+
+.upload-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+}
+
+/* Status Toggles */
+.status-toggles {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.toggle-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+/* Switch Styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e5e7eb;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+input:checked + .slider {
+    background-color: #10b981; /* Green active */
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Delete Button */
+.delete-user-btn {
+    background-color: #fee2e2;
+    color: #ef4444;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 90%;
+    transition: background 0.2s;
+}
+
+.delete-user-btn:hover {
+    background-color: #fecaca;
+}
+
+/* --- RIGHT DETAILS CARD --- */
+.details-card {
+    padding: 30px;
+}
+
+.form-grid-1-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.req {
+    color: #ef4444;
+}
+
+.modern-input {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #fff;
+    color: #111827;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.modern-input:focus {
+    outline: none;
+    border-color: #111827;
+    box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.1);
+}
+
+.modern-input[readOnly] {
+    background-color: #f9fafb;
+    border-color: #e5e7eb;
+    color: #6b7280;
+}
+
+/* --- SELECTION GRIDS (Vessel) --- */
+.selection-area {
+    margin-bottom: 30px;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 20px;
+}
+
+.form-section-full {
+    margin-bottom: 20px;
+}
+
+.section-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+.checkbox-grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.checkbox-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.checkbox-chip:hover {
+    border-color: #9ca3af;
+}
+
+.checkbox-chip.checked {
+    border-color: #111827;
+    background-color: #f9fafb;
+    font-weight: 500;
+}
+
+.checkbox-chip input {
+    accent-color: #111827;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-chip.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+    background-color: #f3f4f6;
+}
+
+.no-data {
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* VESSEL MAPPING SECTION */
+.vessel-mapping-section {
+    margin-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 20px;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 15px;
+}
+
+.vessel-group {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.assigned-group {
+    border-left: 4px solid #10b981; /* Green accent */
+    background-color: #ecfdf5;
+}
+
+.available-group {
+    border-left: 4px solid #6b7280; /* Gray accent */
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.group-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.group-count {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.badge-green { background-color: #d1fae5; color: #065f46; }
+.badge-gray { background-color: #e5e7eb; color: #374151; }
+
+.vessel-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.empty-slot-message {
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    padding: 10px;
+}
+
+/* VESSEL CHIP STYLES */
+.vessel-chip {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 220px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.vessel-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.vessel-chip.assigned {
+    border-color: #10b981;
+}
+
+.vessel-chip.available {
+    border-color: #d1d5db;
+    opacity: 0.9;
+}
+
+.vessel-icon {
+    color: #6b7280;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.vessel-chip.assigned .vessel-icon {
+    color: #10b981;
+}
+
+.vessel-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.v-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1f2937;
+}
+
+.v-imo {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.action-icon {
+    margin-left: 10px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.vessel-chip.assigned:hover .action-icon { color: #ef4444; } /* Red for remove */
+.vessel-chip.available:hover .action-icon { color: #10b981; } /* Green for add */
+
+.vessel-chip.disabled {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* --- FOOTER ACTIONS --- */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 20px;
+}
+
+.save-changes-btn {
+    background-color: #111827;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.save-changes-btn:hover {
+    background-color: #000000;
+}
+
+.save-changes-btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #f9fafb;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .split-layout-container {
+        flex-direction: column;
+    }
+    .left-column {
+        width: 100%;
+    }
+}

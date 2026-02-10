@@ -1,0 +1,232 @@
+/* --- CONTAINER --- */
+.report-view-container {
+    padding: 20px;
+    background-color: transparent !important; /* Allow BG to show */
+    min-height: 100vh;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HEADER --- */
+.report-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.report-title {
+    margin: 0 0 8px 0;
+    color: #fff; /* White text for dark BG */
+    font-size: 1.6rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: rgba(233, 236, 239, 0.9);
+    color: #495057;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* --- GRID LAYOUT --- */
+.report-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns by default */
+    gap: 20px;
+}
+
+/* --- DETAIL CARD (GLASSMORPHISM) --- */
+.detail-card {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.detail-card.full-span {
+    grid-column: span 2; /* Takes full width */
+}
+
+.card-header {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px 20px;
+    font-weight: 700;
+    color: #007bff; /* Primary Blue Accents */
+    border-bottom: 1px solid #f0f0f0;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* --- DETAIL ITEM (Label - Value) --- */
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.detail-item label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.detail-item .value {
+    font-size: 1.05rem;
+    color: #333;
+    font-weight: 500;
+    min-height: 24px;
+}
+
+.detail-item .value.highlight-text {
+    color: #28a745; /* Green highlight for quantities */
+    font-weight: 700;
+}
+
+/* --- GRIDS INSIDE CARDS --- */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 20px 0;
+}
+
+/* --- TAGS (BDN & Machinery) --- */
+.bdn-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.bdn-tag {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid #bbdefb;
+}
+
+.machinery-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.machinery-tag {
+    background-color: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.no-data-text {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* --- BUTTONS --- */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.btn-primary:hover { background-color: #0056b3; }
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-secondary:hover { background-color: #545b62; }
+
+/* ... Existing CSS ... */
+
+/* --- AUDIT TABLE STYLES --- */
+.audit-table-wrapper {
+    overflow-x: auto;
+}
+
+.audit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.audit-table th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 12px 15px;
+    border-bottom: 2px solid #eee;
+    text-align: left;
+}
+
+.audit-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+}
+
+.audit-table tr:hover {
+    background-color: #fafafa;
+}
+
+.bdn-mini-tag {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}

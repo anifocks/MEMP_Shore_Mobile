@@ -1,0 +1,188 @@
+/* Shore-Client/src/pages/VoyageManagementPage.css */
+
+.voyage-management-container {
+    padding: 2rem; 
+    /* FIX: Make transparent so Global Wallpaper shows */
+    background-color: transparent !important; 
+    min-height: calc(100vh - 60px); 
+    font-family: sans-serif; 
+    color: #333;
+}
+
+.voyage-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem; 
+}
+
+/* FIX: Update Header Text to be white for visibility on dark wallpapers */
+.voyage-page-header h1 {
+    font-size: 2rem; 
+    font-weight: bold;
+    color: white; 
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    margin: 0;
+}
+
+.voyage-actions {
+    display: flex;
+    gap: 1rem; 
+    align-items: center;
+}
+
+.add-voyage-button {
+    background-color: #3b82f6; 
+    color: white;
+    padding: 0.625rem 1rem; 
+    border: none;
+    border-radius: 0.25rem; 
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.add-voyage-button:hover {
+    background-color: #2563eb; 
+    transform: translateY(-1px);
+}
+
+.global-back-link {
+    color: #3b82f6; 
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem; 
+    border: 1px solid #3b82f6; 
+    border-radius: 0.25rem; 
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.global-back-link:hover {
+    background-color: #3b82f6; 
+    color: white;
+}
+
+/* LIST SECTION (White Card) */
+.voyage-list-section {
+    background: white; /* KEEP WHITE BACKGROUND */
+    /* --- FIX: FORCE DARK TEXT INSIDE WHITE CARD --- */
+    color: #1f2937 !important;
+    padding: 1.5rem; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
+}
+
+.voyage-list-section h2 {
+    font-size: 1.125rem; 
+    font-weight: 600;
+    color: #374151; 
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb; 
+    padding-bottom: 0.75rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.voyage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem; 
+    border-radius: 0.5rem; 
+    overflow: hidden; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+    background-color: white;
+    /* FIX: Force dark text inside table */
+    color: #1f2937 !important;
+}
+
+.voyage-table th,
+.voyage-table td {
+    padding: 0.75rem 1rem; 
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb; 
+    font-size: 0.9375rem;
+    color: #1f2937; /* Dark text */
+}
+
+.voyage-table th {
+    background-color: #f3f4f6; 
+    font-weight: 600;
+    color: #4b5563; 
+    text-transform: uppercase;
+}
+
+.voyage-table tbody tr:hover {
+    background-color: #f0f4f8; 
+}
+
+.voyage-table .inactive-voyage-row {
+    opacity: 0.7;
+    background-color: #fffbeb; 
+}
+
+.no-data-info {
+    text-align: center;
+    padding: 1.5rem; 
+    font-size: 1rem;
+    color: #6b7280;
+    background-color: #f3f4f6; 
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Loading/Error states - matching your provided snippet style */
+.voyage-loading-state,
+.voyage-error-state {
+    text-align: center;
+    padding: 2.5rem; 
+    font-size: 1.125rem;
+    color: white; /* White text for visibility on transparent bg */
+}
+
+.voyage-error-state {
+    color: #ef4444;
+}
+
+/* Action buttons within table cells */
+.voyage-actions-cell {
+    white-space: nowrap;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    padding: 0.25rem; 
+    cursor: pointer;
+    font-size: 1rem; 
+    margin-right: 0.25rem; 
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: #6b7280; 
+}
+
+.action-button.view-button {
+    color: #3b82f6; 
+}
+.action-button.view-button:hover {
+    background-color: #e0f0ff; 
+}
+
+.action-button.edit-button {
+    color: #facc15; 
+}
+.action-button.edit-button:hover {
+    background-color: #fff3cd; 
+}
+
+.action-button.delete-button {
+    color: #ef4444; 
+}
+.action-button.delete-button:hover {
+    background-color: #f8d7da; 
+}

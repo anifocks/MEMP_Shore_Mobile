@@ -1,0 +1,144 @@
+/* AI Help/Client/src/pages/TankDetailsPage.css */
+
+.tank-details-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 60px); /* Adjust based on your header height */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.details-header h1 {
+    font-size: 2.2em;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.details-header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.back-link {
+    background-color: #6c757d; /* Grey for back button */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.back-link:hover {
+    background-color: #5a6268;
+}
+
+.btn-edit {
+    background-color: #007bff; /* Blue for edit button */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.loading-state, .error-state {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: #555;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.error-state {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.details-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 30px;
+}
+
+@media (min-width: 992px) {
+    .details-layout {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for cards on larger screens */
+    }
+}
+
+/* Removed left-column and right-column as the main layout will now handle card distribution directly */
+
+/* Add styles for DetailCard and DetailItem here to ensure consistency */
+.detail-card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+}
+.detail-card-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.75rem;
+}
+.detail-card-title svg {
+    margin-right: 0.5rem;
+    color: #6b7280;
+}
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default to 1 column for items within card */
+    gap: 1rem 1.5rem;
+}
+@media (min-width: 768px) {
+    .detail-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns for items within card on larger screens */
+    }
+}
+.detail-item {
+    padding: 0.5rem 0;
+    display: flex; /* Use flexbox for stacking */
+    flex-direction: column; /* Stack label and value vertically */
+}
+.detail-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 0.25rem; /* Space between label and value */
+}
+.detail-value {
+    font-size: 1rem;
+    color: #111827;
+}

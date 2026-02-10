@@ -1,0 +1,100 @@
+/* Styles specific to the Login Page / Component */
+
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  /* Background image will be handled by global.css or a Layout component */
+  padding: 20px; /* Add some padding */
+  box-sizing: border-box;
+}
+
+.team-logo-login {
+  /* Adjust positioning as needed for component-based layout */
+  /* position: absolute; top: 20px; left: 20px; OR simpler: */
+  margin-bottom: 30px; /* Space below logo */
+  /* These values should ideally be unitless (like px) or a percentage */
+  /* Using '200px' and 'auto' for generic sizing */
+  width: 300px; 
+  height: 50px; 
+}
+
+/* NEW: Style for the logo that sits *above* the login box */
+.viswa-logo-overlay {
+    width: 250px; /* Set a reasonable width for the top logo */
+    height: auto;
+    z-index: 20; /* Ensure it's above the login container shadow */
+    /* CRITICAL: Use negative margin to pull the logo up and over the box. 
+       Adjust -40px to control the exact overlap height. */
+    margin-bottom: -1px; 
+}
+
+.error-message-login {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 300px; /* Ensure it doesn't get too wide */
+}
+
+.login-container {
+  max-width: 350px; /* Slightly wider for better padding */
+  width: 100%; /* Responsive */
+  margin: 0 auto; /* Centering if not already by flex parent */
+  padding: 30px;
+  /* CRITICAL CHANGE: Increased transparency by changing alpha from 0.9 to 0.6 */
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center h2 if present */
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333; /* Example color */
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-container label {
+  margin-bottom: 8px; /* Adjusted spacing */
+  font-weight: bold;
+  font-size: 15px; /* Adjusted size */
+  text-align: left; /* Align labels to the left */
+  color: #333;
+}
+
+.login-container input {
+  margin-bottom: 18px; /* Adjusted spacing */
+  padding: 12px; /* Increased padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%; /* Ensure it takes full width of form */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.login-container button {
+  padding: 12px 20px; /* Increased padding */
+  background: rgb(0, 100, 0);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.login-container button:hover {
+  background: #2bab0d;
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MEMP_Shore Report Uploader</title>
+    
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    
+    <script>
+        // Show loading message while Office.js loads
+        console.log('📄 Taskpane HTML loaded');
+        window.taskpaneHtmlReady = true;
+        
+        // Error handler for taskpane errors
+        window.addEventListener('error', (e) => {
+            console.error('❌ Taskpane error:', e.message);
+        });
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #1F4788;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #4472C4;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4472C4;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover:not(:disabled) {
+            background: #e0e0e0;
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .status-box {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .status-box.info {
+            background: #e3f2fd;
+            color: #1565c0;
+            border-left: 4px solid #1565c0;
+        }
+        
+        .status-box.success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+        
+        .status-box.error {
+            background: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+        
+        .status-box.warning {
+            background: #fff3e0;
+            color: #ef6c00;
+            border-left: 4px solid #ef6c00;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .info-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 MEMP_Shore</h1>
+        <div class="subtitle">Vessel Report Uploader</div>
+        
+        <div class="section">
+            <div class="section-title">Report Information</div>
+            <div id="reportInfo">
+                <div class="info-item">
+                    <div class="info-label">Status:</div>
+                    <div class="info-value" id="sheetStatus">Fetch data first, then validate</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-primary" id="fetchBtn" onclick="fetchLatestTemplateData()" style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">📥 Fetch Latest Data</button>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-secondary" id="validateBtn" onclick="validateReport()" disabled style="opacity: 0.5;">Validate Report</button>
+            <button class="btn-primary" id="uploadBtn" onclick="uploadReport()" disabled>Send Report</button>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <div>Processing...</div>
+        </div>
+        
+        <div class="status-box" id="statusBox"></div>
+        <div class="status-box info" id="debugLog" style="display:none; white-space: pre-line; max-height: 180px; overflow-y: auto; margin-top: 10px;"></div>
+        
+        <!-- Authentication Section - Moved to Bottom -->
+        <div class="section" style="margin-top: auto; border-top: 1px solid #eee; padding-top: 15px; margin-top: 20px;">
+            <div class="section-title">Authentication</div>
+            <div class="form-group">
+                <label for="apiUrl">API URL</label>
+                <input type="text" id="apiUrl" value="http://localhost:4000" placeholder="http://localhost:4000">
+            </div>
+            <div class="form-group">
+                <label for="authToken">Authentication Token</label>
+                <input type="password" id="authToken" placeholder="Paste your JWT token here">
+            </div>
+            <div class="form-group">
+                <label for="shipId">Ship ID (optional)</label>
+                <input type="number" id="shipId" placeholder="Auto-detected if available">
+            </div>
+        </div>
+    </div>
+    
+    <script src="taskpane.js"></script>
+</body>
+</html>

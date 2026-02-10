@@ -1,0 +1,15 @@
+{
+    "verbose": true,
+    "watch": ["."],
+    "ignore": [
+        "node_modules/**",
+        "public/uploads/**",
+        ".git/**",
+        "*.test.js",
+        "nodemon.json"
+    ],
+    "ext": "js,mjs,cjs,json,env",
+    "exec": "node taskServer.js",
+    "signal": "SIGINT",
+    "delay": "3000"
+}

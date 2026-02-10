@@ -1,0 +1,46 @@
+/* client/src/pages/FleetMapPage.css */
+.fleet-map-page-container {
+    padding: 20px;
+    color: #333;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.fleet-map-title {
+    color: #0056b3;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.fleet-map-intro {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.fleet-map-wrapper {
+    /* Map occupies most of the page content area */
+    width: 100%;
+    height: 600px; /* Generous height for a full map page */
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.fleet-map-info {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1em;
+}
+
+.no-vessels-message {
+    color: #dc3545;
+    font-style: italic;
+    margin-top: 5px;
+}

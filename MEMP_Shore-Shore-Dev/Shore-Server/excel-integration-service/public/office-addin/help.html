@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMP_Shore Report Uploader - Help</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #1F4788; }
+        h2 { color: #4472C4; margin-top: 30px; }
+        .step { 
+            background: #f5f5f5; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-left: 4px solid #4472C4;
+            border-radius: 4px;
+        }
+        code {
+            background: #e0e0e0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>MEMP_Shore Report Uploader - Help Guide</h1>
+
+    <h2>Single-Click Upload (Excel Add-in)</h2>
+    <div class="step">
+        <strong>Step 1:</strong> Download the vessel report template from the MEMP_Shore application.
+    </div>
+    <div class="step">
+        <strong>Step 2:</strong> Open the template in Microsoft Excel (Excel 2016 or later).
+    </div>
+    <div class="step">
+        <strong>Step 3:</strong> Fill in your vessel daily report data in the VesselDailyReports sheet.
+    </div>
+    <div class="step">
+        <strong>Step 4:</strong> Click the "Send Report" button in the Home ribbon.
+    </div>
+    <div class="step">
+        <strong>Step 5:</strong> Enter your API URL and authentication token, then click Validate and Send.
+    </div>
+
+    <h2>Authentication</h2>
+    <p>To upload reports, you need:</p>
+    <ul>
+        <li><strong>API URL:</strong> The base URL of your MEMP_Shore API (e.g., http://localhost:4000)</li>
+        <li><strong>Auth Token:</strong> Your JWT authentication token from the MEMP_Shore web application</li>
+    </ul>
+
+    <h2>How to Get Your Auth Token</h2>
+    <div class="step">
+        1. Log in to the MEMP_Shore web application<br>
+        2. Open Browser Developer Tools (F12)<br>
+        3. Go to Application → Local Storage<br>
+        4. Find "token" or "authToken"<br>
+        5. Copy the value and paste it into the add-in
+    </div>
+
+    <h2>Troubleshooting</h2>
+    <p><strong>Issue:</strong> "VesselDailyReports sheet not found"</p>
+    <p><strong>Solution:</strong> Make sure you're using the official MEMP_Shore template and haven't renamed the sheets.</p>
+
+    <p><strong>Issue:</strong> "Upload failed with status 401"</p>
+    <p><strong>Solution:</strong> Your authentication token has expired. Get a new token from the web application.</p>
+
+    <h2>Support</h2>
+    <p>For technical support, contact your system administrator or email support@mempship.com</p>
+</body>
+</html>

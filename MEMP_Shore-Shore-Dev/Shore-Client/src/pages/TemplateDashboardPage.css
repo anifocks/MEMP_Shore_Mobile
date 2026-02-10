@@ -1,0 +1,84 @@
+/* client/src/pages/TemplateDashboardPage.css */
+
+.template-dashboard-container {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.template-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.template-page-header h1 {
+    color: #007000;
+    font-size: 2em;
+}
+
+/* Re-using global-back-link style from other pages is recommended */
+/* If not global, define it here: */
+.global-back-link {
+    color: #007000;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+.global-back-link:hover {
+    background-color: rgba(0, 112, 0, 0.1);
+}
+
+.template-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.template-card {
+    /* background-color is now an inline style for gradients */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    flex-basis: 280px;
+    max-width: 300px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.template-card-icon {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.template-card h2 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.template-card p {
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
+}

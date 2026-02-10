@@ -1,0 +1,49 @@
+/* src/components/CueCard.css */
+.cue-card {
+  aspect-ratio: 4 / 3; /* Common card aspect ratio, adjust as you like */
+  border-radius: 15px; /* Softer edges */
+  background-color: rgba(0, 70, 0, 0.5); /* Darker, semi-transparent fallback */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column; /* To stack overlay and title */
+  justify-content: flex-end; /* Push title to bottom */
+  align-items: center;
+  text-decoration: none; /* Remove underline if it's a Link */
+}
+
+.cue-card:hover {
+  transform: translateY(-10px) scale(1.05); /* More pronounced hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.cue-card-overlay {
+  /* This overlay is part of the gradient now for better text readability */
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0) 100%);
+  padding: 25px 20px 20px 20px; /* More padding */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cue-card-title {
+  color: white;
+  font-size: 1.6rem; /* Larger title */
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.25;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Fallback if no background image is provided */
+.cue-card:not([style*="background-image"]) {
+  background-color: #003300; /* Even darker green fallback for cards without images */
+}
+.cue-card:not([style*="background-image"]) .cue-card-overlay {
+   background: linear-gradient(to top, rgba(0,0,0,0.7) 0%,  rgba(0,0,0,0.3) 100%);
+}

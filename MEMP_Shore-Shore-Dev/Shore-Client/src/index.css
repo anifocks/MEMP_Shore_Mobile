@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities; 
+
+/* CRITICAL FIX: Set up full height chain */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Use min-height instead of fixed height to allow scrolling */
+    min-height: 100vh; 
+    overflow-x: hidden;
+    background-color: transparent; /* Remove default white to allow apps bg to show */
+}
+
+#root {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Ensure root grows to fill available space */
+    flex-grow: 1; 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Global style for back links */
+.global-back-link {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background-color: rgba(0, 100, 0, 0.8);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.global-back-link:hover {
+  background-color: rgba(0, 80, 0, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.memp-content-area-padding {
+  padding: 1rem; 
+}
+@media (min-width: 768px) {
+  .memp-content-area-padding {
+    padding: 1.5rem; 
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #a1a1a1; }
+
+.sea-route-map-container {
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.ship-marker {
+  transform: rotate(0deg);
+  transition: transform 0.1s linear; 
+}
+
+.mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-bottom-left {
+    display: none !important; 
+}

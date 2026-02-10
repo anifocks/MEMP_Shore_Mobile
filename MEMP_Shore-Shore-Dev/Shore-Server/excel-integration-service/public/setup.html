@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MEMP Shore - First Time Setup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .step {
+            background: #e7f3ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .step-number {
+            background: #2196F3;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .url-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border: 2px dashed #007bff;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .download-btn {
+            background: #007bff;
+        }
+        .download-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 MEMP Shore Excel Add-in - First Time Setup</h1>
+        
+        <div class="alert">
+            <strong>⚠️ Important:</strong> You only need to do this ONCE per computer. After this one-time setup, all MEMP templates will work automatically!
+        </div>
+
+        <h2>Two Methods - Choose ONE:</h2>
+
+        <h3>Method 1: Automatic Setup (Recommended)</h3>
+        <div class="step">
+            <button class="download-btn" onclick="downloadScript()">📥 Download Setup Script</button>
+            <p>1. Click the button above to download the setup script</p>
+            <p>2. Double-click the downloaded file <code>MEMP_Setup.bat</code></p>
+            <p>3. Follow the simple prompts</p>
+            <p>4. That's it! Templates will work automatically</p>
+        </div>
+
+        <h3>Method 2: Manual Setup (5 minutes)</h3>
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Open Excel</strong> (any workbook)
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Click INSERT tab</strong> in the ribbon → <strong>Add-ins</strong> button
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Click "MY ADD-INS"</strong> at the top of the dialog
+        </div>
+
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>Look for an upload option</strong>:
+            <ul>
+                <li>Click "Upload My Add-in" (bottom left), OR</li>
+                <li>Click the three dots (...</) at top right → Upload custom add-in</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <span class="step-number">5</span>
+            <strong>Paste this URL</strong> (click to copy):
+            <div class="url-box" onclick="copyUrl()" style="cursor: pointer;" title="Click to copy">
+                https://veemsonboardupgrade.theviswagroup.com/office-addin/manifest.xml
+            </div>
+            <button onclick="copyUrl()">📋 Copy URL</button>
+        </div>
+
+        <div class="step">
+            <span class="step-number">6</span>
+            <strong>Click "Upload"</strong> or "Submit"
+            <p>You should see "MEMP_Shore Report Uploader" added to your list</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">7</span>
+            <strong>Close Excel</strong> completely (close all Excel windows)
+        </div>
+
+        <div class="success">
+            <strong>✅ Setup Complete!</strong><br>
+            From now on, whenever you open a MEMP template:
+            <ul>
+                <li>The add-in will load automatically</li>
+                <li>All features will work (Fetch, Validate, Send)</li>
+                <li>No errors, no localhost issues</li>
+            </ul>
+        </div>
+
+        <h2>Troubleshooting</h2>
+        <details>
+            <summary><strong>What if I can't find "Upload My Add-in"?</strong></summary>
+            <p>Try this alternative:
+                <ol>
+                    <li>File → Options → Trust Center → Trust Center Settings</li>
+                    <li>Trusted Add-in Catalogs</li>
+                    <li>Add this URL as a catalog (remove /manifest.xml from end)</li>
+                </ol>
+            </p>
+        </details>
+
+        <details>
+            <summary><strong>What if the add-in still shows errors?</strong></summary>
+            <p>
+                <ol>
+                    <li>Make sure you're connected to the network</li>
+                    <li>Try closing and reopening Excel completely</li>
+                    <li>Make sure you uploaded from the production URL (not a local file)</li>
+                </ol>
+            </p>
+        </details>
+
+        <hr style="margin: 30px 0;">
+        
+        <p style="text-align: center; color: #666;">
+            <small>MEMP Shore © 2026 | For support, contact your IT administrator</small>
+        </p>
+    </div>
+
+    <script>
+        const manifestUrl = 'https://veemsonboardupgrade.theviswagroup.com/office-addin/manifest.xml';
+        
+        function copyUrl() {
+            navigator.clipboard.writeText(manifestUrl).then(() => {
+                alert('✅ URL copied to clipboard!\n\nPaste it in Excel when uploading the add-in.');
+            }).catch(() => {
+                prompt('Copy this URL:', manifestUrl);
+            });
+        }
+
+        function downloadScript() {
+            // Create the batch script content
+            const scriptContent = `@echo off
+echo ============================================================================
+echo   MEMP Shore - One-Time Setup
+echo ============================================================================
+echo.
+echo This will set up the Excel add-in on your computer.
+echo You only need to do this ONCE.
+echo.
+pause
+
+echo.
+echo Downloading setup script...
+powershell -Command "& {
+    $manifestUrl = '${manifestUrl}';
+    $localPath = '$env:USERPROFILE\\AppData\\Local\\MEMP_Shore_Addin';
+    $manifestFile = '$localPath\\manifest.xml';
+    
+    Write-Host 'Closing Excel...' -ForegroundColor Yellow;
+    Get-Process EXCEL -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.Id -Force };
+    Start-Sleep -Seconds 2;
+    
+    Write-Host 'Clearing cache...' -ForegroundColor Yellow;
+    Remove-Item '$env:LOCALAPPDATA\\Microsoft\\Office\\16.0\\Wef' -Recurse -Force -ErrorAction SilentlyContinue;
+    Remove-Item '$env:LOCALAPPDATA\\Microsoft\\Office\\Wef' -Recurse -Force -ErrorAction SilentlyContinue;
+    
+    Write-Host 'Downloading manifest...' -ForegroundColor Yellow;
+    if (-not (Test-Path $localPath)) { New-Item -Path $localPath -ItemType Directory -Force | Out-Null };
+    try {
+        $webClient = New-Object System.Net.WebClient;
+        $webClient.DownloadFile($manifestUrl, $manifestFile);
+        Write-Host 'Downloaded successfully!' -ForegroundColor Green;
+    } catch {
+        Write-Host 'Error: Could not download manifest' -ForegroundColor Red;
+        Read-Host 'Press Enter to exit';
+        exit 1;
+    }
+    
+    Write-Host 'Registering add-in...' -ForegroundColor Yellow;
+    $regPath = 'HKCU:\\Software\\Microsoft\\Office\\16.0\\Wef\\Developer';
+    if (-not (Test-Path $regPath)) { New-Item -Path $regPath -Force | Out-Null };
+    Set-ItemProperty -Path $regPath -Name 'Manifests' -Value $manifestFile -Type String -Force;
+    
+    Write-Host 'Setup complete!' -ForegroundColor Green;
+    Start-Sleep -Seconds 2;
+    Start-Process 'excel.exe';
+}"
+
+echo.
+echo ============================================================================
+echo   Setup Complete!
+echo ============================================================================
+echo.
+echo Excel is opening. You can now use MEMP templates normally.
+echo.
+pause
+`;
+
+            // Create a blob and download it
+            const blob = new Blob([scriptContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'MEMP_Setup.bat';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            
+            alert('✅ Setup script downloaded!\n\nDouble-click "MEMP_Setup.bat" to run it.');
+        }
+    </script>
+</body>
+</html>
+`;
+
+const blob = new Blob([htmlContent], { type: 'text/html' });
+const url = window.URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = 'MEMP_FirstTimeSetup.html';
+document.body.appendChild(a);
+a.click();
+window.URL.revokeObjectURL(url);
+document.body.removeChild(a);

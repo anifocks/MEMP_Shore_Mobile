@@ -1,0 +1,58 @@
+# Dependencies
+**/node_modules/
+node_modules/
+
+# Public folders - Include service public folders but ignore uploads
+# Ignore uploads folders inside public directories
+**/public/uploads/
+**/public/temp_uploads/
+**/public/**/uploads/
+
+# Ignore Shore-Client public folder
+Shore-Client/public/
+
+# Web config files (excluded from api-gateway)
+Shore-Server/additive-service/web.config
+Shore-Server/auth-service/web.config
+Shore-Server/bunker-service/web.config
+Shore-Server/excel-integration-service/web.config
+Shore-Server/machinery-service/web.config
+Shore-Server/ports-service/web.config
+Shore-Server/reports-service/web.config
+Shore-Server/ships-service/web.config
+Shore-Server/tank-service/web.config
+Shore-Server/task-service/web.config
+Shore-Server/team-service/web.config
+Shore-Server/voyage-service/web.config
+Shore-Client/web.config
+
+# Temporary files
+**/temp_uploads/
+**/temp_excel_uploads/
+**/dist/
+**/build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS files
+Thumbs.db
+.DS_Store
+MEMP_shore

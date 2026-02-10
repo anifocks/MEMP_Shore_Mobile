@@ -1,0 +1,339 @@
+/* Bunker Modified/Client/src/pages/AddEditVesselReportPage.css */
+.add-edit-vessel-report-page {
+    padding: 15px; /* Reduced overall padding */
+    background-color: #f8fbfd; /* Very light, clean background */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Deeper, softer shadow */
+    max-width: 1280px; /* Increased max-width for true landscape feel */
+    margin: 20px auto;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+    color: #333;
+    font-size: 0.95em; /* Slightly smaller base font size */
+}
+
+.add-edit-vessel-report-page.landscape-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.add-edit-vessel-report-page h2 {
+    color: #1a4f72; /* Darker blue heading */
+    text-align: center;
+    margin-bottom: 20px; /* Reduced margin */
+    font-size: 2em;
+    border-bottom: 2px solid #c2e0ff; /* Refined border color */
+    padding-bottom: 8px; /* Reduced padding */
+    font-weight: 700; /* Bolder title */
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fixed Header Section */
+.fixed-header-section {
+    background-color: #ffffff;
+    border: 1px solid #e0e6eb; /* Lighter, subtle border */
+    border-radius: 8px;
+    padding: 15px 25px; /* Reduced vertical padding */
+    margin-bottom: 15px; /* Reduced margin below header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07); /* Refined shadow */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.fixed-header-section h3 {
+    color: #0056b3; /* Consistent primary blue */
+    margin-top: 0;
+    margin-bottom: 15px; /* Reduced margin */
+    font-size: 1.3em; /* Slightly smaller title */
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 8px; /* Reduced padding */
+}
+
+.form-group-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Reduced gap between items in a row */
+    margin-bottom: 10px; /* Reduced margin between rows */
+}
+
+.form-group {
+    flex: 1;
+    /* Adjust flex-basis for 4 columns: (100% / 4) - (gap * 3 / 4) => 25% - 11.25px */
+    flex-basis: calc(25% - 11.25px); /* For 4 items with 15px gap */
+    min-width: 200px; /* Adjusted min-width for 4-col layout */
+    margin-bottom: 0;
+    position: relative; /* Needed for searchable dropdown positioning */
+}
+
+.form-group.full-width {
+    flex-basis: 100%;
+}
+
+/* For specific sections where you want 4-column grid (or whatever 'three-col-grid' previously meant) */
+.four-col-grid { /* Renamed from three-col-grid to explicitly target 4 columns */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-fit 4 columns, min 200px */
+    gap: 15px; /* Consistent gap */
+}
+
+/* Ensure form-group within grid also has appropriate styling */
+.four-col-grid .form-group {
+    min-width: unset; /* Override min-width from parent .form-group-row */
+    flex-basis: auto; /* Override flex-basis from parent .form-group-row */
+    margin-bottom: 0; /* Clear previous margin */
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px; /* Reduced label margin */
+    font-weight: 600; /* Bolder labels */
+    color: #495057;
+    font-size: 0.9em; /* Consistent label font size */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="datetime-local"],
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea,
+/* Include SearchableDropdown input */
+.searchable-dropdown-input {
+    width: 100%;
+    padding: 8px 10px; /* Reduced padding for compactness */
+    border: 1px solid #cdd6de; /* Softer border color */
+    border-radius: 5px;
+    font-size: 0.9em; /* Consistent input font size */
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out; /* Smoother transitions */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.searchable-dropdown-input:focus {
+    border-color: #007bff; /* Primary blue focus border */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Softer, wider glow */
+    outline: none;
+}
+
+.form-group input[disabled],
+.form-group select[disabled],
+.searchable-dropdown-input[disabled] {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 70px; /* Slightly reduced min-height */
+}
+
+.existing-documents {
+    margin-top: 8px; /* Reduced margin */
+    font-size: 0.8em;
+    color: #555;
+}
+.existing-documents p {
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+.existing-documents ul {
+    list-style: disc; /* Use discs for readability */
+    padding-left: 20px; /* Indent list */
+    margin: 0;
+}
+.existing-documents li {
+    margin-bottom: 2px;
+}
+.existing-documents a {
+    color: #007bff;
+    text-decoration: none;
+}
+.existing-documents a:hover {
+    text-decoration: underline;
+}
+
+
+/* Tabs Styling (minor tweaks for consistency) */
+.tabs-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-header {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 15px; /* Reduced margin */
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 8px; /* Reduced padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    gap: 4px; /* Reduced gap */
+}
+
+.tab-button {
+    padding: 10px 15px; /* Reduced padding */
+    cursor: pointer;
+    border: none;
+    background-color: #f2f5f7; /* Softer inactive tab color */
+    font-size: 0.9em; /* Consistent font size */
+    color: #5a6268;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    flex-grow: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tab-button:hover {
+    background-color: #e6eff7;
+    color: #495057;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+.tabs-content {
+    background-color: #ffffff;
+    border: 1px solid #e0e6eb; /* Softer border */
+    border-radius: 8px;
+    padding: 20px; /* Reduced padding */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    flex-grow: 1;
+}
+
+.tab-pane {
+    /* No specific styles needed here, children will use form-section */
+}
+
+.form-section {
+    background-color: #ffffff;
+    border: 1px solid #eef2f5; /* Very light subtle border */
+    border-radius: 8px; /* Consistent border radius */
+    padding: 20px; /* Reduced padding */
+    margin-bottom: 15px; /* Reduced margin for closer sections */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.02); /* Very subtle inner shadow */
+}
+
+.nested-item {
+    background-color: #fcfdfe;
+    border: 1px dashed #dbe3e8;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.nested-item h4 {
+    color: #3b5998;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1em;
+    border-bottom: 1px dotted #e0e0e0;
+    padding-bottom: 4px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    margin-left: 10px;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+.btn-add {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+    padding: 7px 14px;
+    font-size: 0.8em;
+}
+.btn-add:hover {
+    background-color: #218838;
+}
+
+.btn-remove {
+    background-color: #dc3545;
+    color: white;
+    float: right;
+    margin-top: 3px;
+    padding: 5px 10px;
+    font-size: 0.75em;
+}
+.btn-remove:hover {
+    background-color: #c82333;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.loading, .error {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+    padding: 12px;
+    border-radius: 8px;
+}
+.loading {
+    color: #0056b3;
+    background-color: #e0f2f7;
+    border: 1px solid #b3e0ed;
+}
+.error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* Hide spinner arrows for number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}

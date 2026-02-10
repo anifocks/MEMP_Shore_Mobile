@@ -1,0 +1,50 @@
+/* MEMP_Shore_Fleet_imlementataion/MEMP-Shore-Client/src/styles/RotatingBackground.css */
+
+/* This div holds the content (your children/login form/dashboard) and establishes the layout context */
+.rotating-background-container {
+    /* Ensure it acts as the full-screen layout wrapper for children */
+    position: relative; 
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1; /* Keep content layer above the background */
+    
+    /* These styles apply to the content layer */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layer 1: The fixed rotating background image layer */
+.rotating-background-image {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: -1; /* Pushes it behind all content */
+    
+    /* 🛑 CRITICAL FIX: Mouse events (like mouse wheel scroll) pass through this layer to the content underneath (the body/page scrollbar). */
+    pointer-events: none; 
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Fade transition for image change */
+    transition: background-image 2s ease-in-out; 
+}
+
+
+/* Specific class for the login page wrapper to center the login box */
+.login-bg-wrapper {
+    /* Applied to the .rotating-background-container to center the login box */
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Specific class for the dashboard to allow content to flow from top */
+.dashboard-bg-wrapper {
+    /* Align content to the top */
+    align-items: flex-start; 
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <rewrite>
+            <rules>
+                <!-- Proxy /office-addin requests to API Gateway -->
+                <rule name="ProxyOfficeAddin" stopProcessing="true">
+                    <match url="^office-addin/(.*)" />
+                    <action type="Rewrite" url="http://localhost:7000/office-addin/{R:1}" />
+                    <serverVariables>
+                        <set name="HTTP_X_ORIGINAL_HOST" value="{HTTP_HOST}" />
+                    </serverVariables>
+                </rule>
+                
+                <!-- Proxy /api requests to API Gateway (if not already configured) -->
+                <rule name="ProxyAPI" stopProcessing="true">
+                    <match url="^api/(.*)" />
+                    <action type="Rewrite" url="http://localhost:7000/api/{R:1}" />
+                </rule>
+                
+                <!-- Serve React app for everything else -->
+                <rule name="ReactRouter" stopProcessing="true">
+                    <match url=".*" />
+                    <conditions logicalGrouping="MatchAll">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Rewrite" url="/index.html" />
+                </rule>
+            </rules>
+        </rewrite>
+        
+        <!-- Enable CORS for Office Add-ins -->
+        <httpProtocol>
+            <customHeaders>
+                <add name="Access-Control-Allow-Origin" value="*" />
+                <add name="Access-Control-Allow-Methods" value="GET, POST, PUT, DELETE, OPTIONS" />
+                <add name="Access-Control-Allow-Headers" value="Content-Type, Authorization, X-Upload-Token" />
+            </customHeaders>
+        </httpProtocol>
+    </system.webServer>
+</configuration>

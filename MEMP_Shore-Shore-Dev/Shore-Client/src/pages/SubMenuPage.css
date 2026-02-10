@@ -1,0 +1,36 @@
+/* GeminiAI/Client/src/pages/SubMenuPage.css */
+.submenu-page-container {
+  padding: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.submenu-page-title {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin-top: 0; 
+  margin-bottom: 40px;
+  font-size: 2.5rem; 
+  font-weight: bold;
+}
+
+.cue-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Using global-back-link from index.css, but if you want specific styling: */
+/* .back-to-previous-menu-link { ... } */
+
+.submenu-error-message, .submenu-info-message {
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block; /* So it doesn't span full width unnecessarily */
+}

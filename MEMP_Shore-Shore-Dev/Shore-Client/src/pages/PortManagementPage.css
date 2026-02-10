@@ -1,0 +1,9 @@
+.port-management-container {
+    @apply p-6 bg-gray-50 min-h-screen;
+}
+
+.add-port-button {
+    @apply bg-blue-600 text-white font-bold py-2 px-4 rounded-lg flex items-center transition-transform transform hover:scale-105;
+}
+
+/* You can add more specific styles here if Tailwind classes become unwieldy */

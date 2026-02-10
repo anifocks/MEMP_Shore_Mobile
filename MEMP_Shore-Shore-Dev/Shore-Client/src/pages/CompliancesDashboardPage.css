@@ -1,0 +1,590 @@
+/* src/pages/CompliancesDashboardPage.css */
+
+.compliances-cards-page {
+    font-family: 'Public Sans', sans-serif;
+    background-color: transparent !important;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+.cards-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: rgb(15, 2, 2);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.page-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    color: #0f0101;
+}
+
+.filters-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10000;
+    max-width: var(--data-preview-width, 1800px);
+    width: 100%;
+}
+
+.filters-section h3 {
+    margin: 0 0 20px 0;
+    color: #212b36;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Horizontal form styling for filters */
+.report-form.horizontal-form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: nowrap; /* Prevent wrapping to keep filters in one line */
+}
+
+.horizontal-form .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Give vessel selector more space */
+.horizontal-form .form-group:first-child {
+    flex: 2;
+    min-width: 250px;
+}
+
+/* Card Styles */
+.cards-container {
+    max-width: var(--data-preview-width, 1800px);
+    width: 100%;
+}
+.data-preview-container {
+    max-width:  1550px;
+    width: 170%;
+}
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    column-gap: 12px;   /* reduce horizontal gap */
+    row-gap: 24px;      /* keep vertical gap same */
+    justify-content: center;
+}
+
+.compliance-card {
+    border-radius: 16px;
+    box-shadow: 0 0 2px 0 rgba(145, 158, 171, 0.2), 0 12px 24px -4px rgba(145, 158, 171, 0.12);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.compliance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 2px 0 rgba(145, 158, 171, 0.2), 0 20px 40px -4px rgba(145, 158, 171, 0.25);
+}
+
+.card-header {
+    padding: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.1); /* Semi-transparent overlay for better text contrast */
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.sheets-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 300%;
+    max-height: 1000px;
+}
+/*
+.sheet-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    width: 400px
+}
+*/
+
+.sheet-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    max-height: 40px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    
+    /* Updated changes */
+    width: 100%;
+}
+
+.sheet-name {
+    font-weight: 500;
+    color: #495057;
+    flex: 1;
+}
+
+.sheet-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    color: #6c757d;
+}
+
+.action-btn:hover:not(:disabled) {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.view-btn:hover:not(:disabled) {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #0056b3;
+}
+
+.download-btn:hover:not(:disabled) {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #155724;
+}
+
+/* Data Preview Section - Adjustable Width with Horizontal Scrolling */
+.data-preview-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    width: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.data-preview-section h2 {
+    margin: 0 0 24px 0;
+    color: #212b36;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.preview-section {
+    margin-bottom: 24px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.preview-header {
+    background: #f8f9fa;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.preview-header h3 {
+    margin: 0;
+    color: #495057;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.preview-section > div {
+    padding: 20px;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.tab-navigation button {
+    padding: 8px 16px;
+    background: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.tab-navigation button:hover {
+    background: #e9ecef;
+}
+
+.tab-navigation button.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.tab-content {
+    overflow-x: auto;
+    min-width: var(--data-preview-width, 1200px);
+    width: auto;
+    margin-left: 0;
+}
+
+/* CII Details Grid Layout - Left Aligned */
+.cii-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: 0;
+}
+
+/* EU MRV Details Grid Layout - Left Aligned */
+.eu-mrv-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 50%;
+    margin-left: 0;
+}
+
+/* EU ETS Details Grid Layout - Left Aligned */
+.eu-ets-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 50px;
+    margin-left: 0;
+}
+
+/* UK MRV Details Grid Layout - Left Aligned */
+.uk-mrv-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 50%;
+    margin-left: 0;
+}
+
+/* UK ETS Details Grid Layout - Left Aligned */
+.uk-ets-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 50%;
+    margin-left: 0;
+}
+
+/* Collapsible Preview Section */
+.collapsible-preview-section {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    width: 100%;
+    margin-left: 0;
+}
+
+.collapsible-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9fafb;
+    padding: 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease;
+}
+
+.collapsible-header:hover {
+    background-color: #f3f4f6;
+}
+
+.collapsible-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.collapsible-content {
+    padding: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* CII Rating Card */
+.cii-rating-card {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* EU MRV Status Card */
+.eu-mrv-status-card {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #3b82f6;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 400px;
+}
+
+/* EU ETS Status Card */
+.eu-ets-status-card {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #10b981;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 400px;
+}
+
+/* UK MRV Status Card */
+.uk-mrv-status-card {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #8b5cf6;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 400px;
+}
+
+/* UK ETS Status Card */
+.uk-ets-status-card {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #f59e0b;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 400px;
+}
+
+.rating-header {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 12px;
+}
+
+.rating-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* CII Data Card styling */
+.cii-data-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    width: 100%;
+    min-width: 100%;
+}
+
+/* EU MRV Data Card styling */
+.eu-mrv-data-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    width: 50%;
+    min-width: 100%;
+}
+
+/* EU ETS Data Card styling */
+.eu-ets-data-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    width: 50%;
+    min-width: 100%;
+}
+
+/* UK MRV Data Card styling */
+.uk-mrv-data-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    width: 50%;
+    min-width: 100%;
+}
+
+/* UK ETS Data Card styling */
+.uk-ets-data-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    width: 50%;
+    min-width: 100%;
+}
+
+/* Detail item styling for tab content */
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.detail-label {
+    font-weight: bold; /* Make label bold */
+    color: #000000; /* Black font */
+    font-size: 0.95rem;
+    white-space: nowrap; /* Prevent wrapping */
+    flex: 1;
+    margin-right: 16px;
+}
+
+.detail-value {
+    font-weight: bold; /* Make value bold */
+    color: #000000; /* Black font */
+    font-size: 0.95rem;
+    text-align: right;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-container {
+        padding: 20px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-header {
+        padding: 16px;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .filters-section {
+        padding: 20px;
+    }
+
+    .data-preview-section {
+        padding: 20px;
+    }
+
+    /* Allow filters to wrap on smaller screens */
+    .report-form.horizontal-form {
+        flex-wrap: wrap;
+    }
+
+    .horizontal-form .form-group {
+        flex-basis: 50%;
+        min-width: unset;
+    }
+
+    .horizontal-form .form-group:first-child {
+        flex: 1;
+        min-width: unset;
+    }
+}

@@ -1,0 +1,76 @@
+/* Bunker Modified/Client/src/components/SearchableDropdown/SearchableDropdown.css */
+.searchable-dropdown-container {
+    position: relative;
+    width: 100%;
+}
+
+.searchable-dropdown-container label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #495057;
+    font-size: 0.9em;
+}
+
+.searchable-dropdown-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 0.95em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchable-dropdown-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.searchable-dropdown-input[disabled] {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.searchable-dropdown-options {
+    position: absolute;
+    top: 100%; /* Position below the input */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    max-height: 200px; /* Limit height for scrollability */
+    overflow-y: auto;
+    z-index: 10; /* Ensure it's above other content */
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchable-dropdown-options li {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.searchable-dropdown-options li:hover,
+.searchable-dropdown-options li.selected {
+    background-color: #e9f5ff; /* Light blue background for hover/selected */
+    color: #0056b3; /* Darker blue text for hover/selected */
+}
+
+.searchable-dropdown-options li.no-results {
+    color: #888;
+    cursor: default;
+    font-style: italic;
+}
+
+.required-asterisk {
+    color: red;
+    margin-left: 2px;
+}

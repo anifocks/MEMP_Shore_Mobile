@@ -1,0 +1,284 @@
+/* src/pages/AdminMenuPage.css */
+.admin-menu-page {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px 30px 30px 30px;
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  color: #333;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-header h1 {
+  color: #007000;
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.close-admin-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.close-admin-btn:hover {
+  background-color: #5a6268;
+}
+
+.admin-menu-form h2 {
+  font-size: 1.4em;
+  color: #006400;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 12px;
+}
+
+.admin-menu-form .form-group {
+  margin-bottom: 20px;
+}
+
+.admin-menu-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.admin-menu-form input[type="text"],
+.admin-menu-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.admin-menu-form input[type="text"]:focus,
+.admin-menu-form select:focus {
+  border-color: #006400;
+  box-shadow: 0 0 0 2px rgba(0, 100, 0, 0.2);
+  outline: none;
+}
+
+.admin-menu-form .form-group-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px; /* Add some top margin */
+}
+.admin-menu-form .form-group-checkbox input[type="checkbox"] {
+  width: auto;
+  margin-top: 1px; /* Minor alignment */
+  flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+.admin-menu-form .form-group-checkbox .checkbox-label {
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 0.9em; /* Slightly smaller for checkbox label */
+}
+
+.admin-menu-form .route-hint {
+  display: block;
+  font-size: 0.8em;
+  color: #555;
+  margin-top: 4px;
+}
+
+
+.admin-menu-form button[type="submit"] {
+  background-color: #006400;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.admin-menu-form button[type="submit"]:hover {
+  background-color: #004d00;
+}
+
+.admin-note {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #555;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-left: 4px solid #006400;
+    border-radius: 4px;
+}
+
+/* src/pages/AdminMenuPage.css */
+/* ... your existing styles for the form ... */
+
+.section-divider {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.manage-existing-items h2 {
+  font-size: 1.4em;
+  color: #006400;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 12px;
+}
+
+.manageable-menu-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.manageable-menu-item.inactive {
+  background-color: #fff5f5; /* Light red for inactive */
+  border-color: #fcc;
+}
+
+.manageable-menu-item .item-details {
+  flex-grow: 1;
+}
+
+.manageable-menu-item .item-name {
+  font-weight: bold;
+}
+
+.manageable-menu-item .item-info {
+  font-size: 0.85em;
+  color: #555;
+  display: block; /* Or inline with margin */
+}
+.manageable-menu-item .item-status {
+  font-size: 0.85em;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-left: 10px;
+  display: inline-block; /* Added for better alignment */
+}
+.item-status.status-active {
+  color: #28a745;
+  background-color: #e9f7ef;
+}
+.item-status.status-inactive {
+  color: #dc3545;
+  background-color: #fdf0f1;
+}
+
+
+.manageable-menu-item .item-actions .action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px;
+  font-size: 1.1em;
+  margin-left: 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+.action-button.deactivate { color: #dc3545; }
+.action-button.reactivate { color: #28a745; }
+
+.action-button:hover {
+  background-color: #e9ecef;
+}
+
+
+/* Password Modal Styles */
+.admin-password-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.admin-password-modal-content {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+  z-index: 1051;
+}
+
+.admin-password-modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #006400;
+}
+
+.admin-password-modal-content .form-group {
+  margin-bottom: 15px;
+}
+.admin-password-modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.admin-password-modal-content input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.modal-error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+.admin-password-modal-content .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.admin-password-modal-content .modal-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95em;
+  cursor: pointer;
+}
+.modal-button.cancel {
+  background-color: #6c757d;
+  color: white;
+}
+.modal-button.confirm {
+  background-color: #006400;
+  color: white;
+}

@@ -1,0 +1,91 @@
+/* Shore-Client/src/components/MEMP/CiiReportPreview.css */
+.cii-report-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.cii-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+    border-top: 4px solid #6b7280; /* Default border color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cii-card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #4b5563;
+}
+
+.cii-header-icon {
+    color: var(--card-theme-color, #6b7280); /* Use CSS variable for color */
+}
+
+.cii-card-header h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cii-rating-display {
+    margin-top: 10px;
+}
+
+.cii-rating-badge {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    background-color: var(--rating-color); /* Use CSS variable */
+    padding: 10px 30px;
+    border-radius: 50%;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.cii-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0.5rem 0;
+}
+
+.cii-unit {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.cii-no-data {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    color: #333; /* Changed for better visibility on light backgrounds */
+    border: 1px dashed #ccc;
+}
+
+.rating-card { --card-theme-color: var(--rating-color); border-top-color: var(--rating-color); }
+.attained-card { --card-theme-color: #2563eb; border-top-color: #2563eb; }
+.required-card { --card-theme-color: #0891b2; border-top-color: #0891b2; }
+.emissions-card { --card-theme-color: #ea580c; border-top-color: #ea580c; }
+
+.rating-card .cii-rating-badge {
+    background-color: var(--rating-color);
+}
+.rating-card .cii-header-icon {
+    color: var(--rating-color);
+}

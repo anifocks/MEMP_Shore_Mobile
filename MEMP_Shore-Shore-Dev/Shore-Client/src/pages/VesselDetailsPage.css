@@ -1,0 +1,139 @@
+/* Shore-Client/src/pages/VesselDetailsPage.css */
+
+.vessel-details-container {
+    padding: 2rem;
+    /* FIX: Make transparent so Global Wallpaper shows */
+    background-color: transparent !important; 
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Update Header Text to be readable on dark wallpapers */
+/* We keep your color, but add a shadow so it pops against the background */
+.details-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2937; 
+    /* OPTIONAL: Add a white text-shadow if this header is hard to read on dark images */
+    /* text-shadow: 0 1px 2px rgba(255,255,255,0.8); */
+}
+
+.back-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.details-layout {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+}
+@media (min-width: 1024px) {
+    .details-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.image-card {
+    background: white; /* KEEP WHITE BACKGROUND */
+    /* --- FIX START: FORCE DARK TEXT INSIDE WHITE CARD --- */
+    color: #1f2937; 
+    /* --- FIX END --- */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    margin-bottom: 1.5rem; 
+}
+
+@media (min-width: 1024px) {
+    .details-layout .image-card {
+        grid-column: span 2; 
+    }
+}
+
+.vessel-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.image-card-info {
+    padding: 1.5rem;
+}
+.info-ship-name { font-size: 1.25rem; font-weight: 600; color: #111827; }
+.info-imo { color: #4b5563; }
+.info-type { color: #6b7280; font-style: italic;}
+
+.status-badge {
+    margin-top: 0.5rem;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+}
+.status-badge.active { background-color: #d1fae5; color: #065f46; }
+.status-badge.inactive { background-color: #fee2e2; color: #991b1b; }
+
+.detail-card {
+    background: white; /* KEEP WHITE BACKGROUND */
+    /* --- FIX START: FORCE DARK TEXT INSIDE WHITE CARD --- */
+    color: #1f2937; 
+    /* --- FIX END --- */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+}
+
+.detail-card-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.75rem;
+}
+.detail-card-title svg {
+    margin-right: 0.5rem;
+    color: #6b7280;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 1rem 1.5rem;
+}
+@media (min-width: 768px) {
+    .detail-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    }
+}
+
+.detail-item {
+    padding: 0.5rem 0;
+    display: flex; 
+    flex-direction: column; 
+}
+.detail-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 0.25rem; 
+}
+.detail-value {
+    font-size: 1rem;
+    color: #111827;
+}
+
+.loading-state, .error-state { padding: 2.5rem; text-align: center; }
+.error-state { color: #ef4444; }

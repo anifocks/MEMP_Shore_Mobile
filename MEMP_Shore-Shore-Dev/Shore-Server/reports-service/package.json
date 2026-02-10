@@ -1,0 +1,24 @@
+{
+  "name": "vessel-reporting-service",
+  "version": "1.0.0",
+  "description": "Service for managing MEMP vessel daily reports",
+  "main": "reportingServer.js",
+  "type": "module",
+  "scripts": {
+    "start": "node reportingServer.js",
+    "dev": "npx kill-port 5011 && nodemon reportingServer.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "exceljs": "^4.4.0",
+    "express": "^4.18.2",
+    "moment-timezone": "^0.6.0",
+    "mssql": "^10.0.4",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "kill-port": "^2.0.1",
+    "nodemon": "^2.0.22"
+  }
+}

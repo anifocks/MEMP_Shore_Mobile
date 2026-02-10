@@ -1,0 +1,54 @@
+# Ignore all node_modules directories in the entire project
+/node_modules
+./api-gateway/node_modules
+./auth-service/node_modules
+./bunker-service/node_modules
+./data-sync-service/node_modules
+./document-service/node_modules
+./excel-integration-service/node_modules
+./machinery-service/node_modules
+./ports-service/node_modules
+./reports-service/node_modules
+./ships-service/node_modules
+./tank-service/node_modules
+./task-service/node_modules
+./team-service/node_modules
+./voyage-service/node_modules
+
+
+# Ignore dependency directories
+/.pnp
+.pnp.js
+
+# Ignore build output folders
+/build
+/dist
+/out
+
+# Ignore log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore environment variable files
+.env
+./api-gateway/.env
+./auth-service/.env
+./bunker-service/.env
+./data-sync-service/.env
+./document-service/.env
+./excel-integration-service/.env
+./machinery-service/.env
+./ports-service/.env
+./reports-service/.env
+./ships-service/.env
+./tank-service/.env
+./task-service/.env
+./team-service/.env
+./voyage-service/.env
+.env.local
+
+# Ignore IIS Node logs
+iisnode/

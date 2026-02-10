@@ -1,0 +1,71 @@
+/* Shore-Client/src/components/GlobalLayout.css */
+
+.global-app-container {
+    position: relative;
+    width: 100%;
+    
+    /* FIX: Flex grow ensures it takes up all vertical space */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    
+    /* Ensure it is at least the height of the screen */
+    min-height: 100vh;
+    
+    font-family: 'Public Sans', sans-serif;
+    transition: background-color 0.3s ease;
+
+    /* FIX: Set a consistent dark text color for ALL modes */
+    color: #333333; 
+}
+
+/* MODE: ROTATING */
+.global-app-container.rotating {
+    background-color: transparent !important;
+    
+    /* FIX: REMOVED "color: #ffffff;" so text stays dark */
+    /* FIX: REMOVED text-shadow since dark text doesn't need it on white cards */
+}
+
+/* MODE: DEFAULT */
+.global-app-container.default {
+    color: #212b36;
+}
+
+/* BACKGROUND LAYERS */
+.global-rotating-bg-container {
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background-color: #1a1a1a;
+}
+
+.global-bg-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.global-bg-slide.active { opacity: 1; }
+
+.global-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Optional: You can make this lighter if the dark text is hard to read on dark images */
+    background: rgba(255, 255, 255, 0.3); 
+    z-index: 1;
+}
+
+.global-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}

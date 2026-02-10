@@ -1,0 +1,14 @@
+{
+  "name": "viswa-digital-backend",
+  "version": "1.0.0",
+  "description": "Backend services for Viswa Digital",
+  "main": "index.js",
+  "scripts": {
+  "dev": "concurrently \"npm start --prefix auth-service\" \"npm start --prefix additive-service\" \"npm start --prefix bunker-service\"  \"npm start --prefix machinery-service\" \"npm start --prefix ships-service\" \"npm start --prefix ports-service\" \"npm start --prefix reports-service\"  \"npm start --prefix voyage-service\" \"npm start --prefix api-gateway\""  },"keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+

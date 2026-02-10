@@ -1,0 +1,20 @@
+{
+  "name": "ports-service",
+  "version": "1.0.0",
+  "description": "Service to manage MEMP Sea Ports data.",
+  "main": "portsServer.js",
+  "type": "module",
+  "scripts": {
+    "start": "node portsServer.js",
+    "dev": "nodemon portsServer.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mssql": "^10.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

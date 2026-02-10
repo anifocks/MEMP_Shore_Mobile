@@ -1,0 +1,181 @@
+/* src/pages/BunkerManagementPage.css */
+
+.bunker-management-container {
+    padding: 2rem;
+    background-color: #f4f7f9;
+    min-height: 100vh;
+}
+
+.bunker-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.bunker-management-header h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.add-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filter-group label {
+    font-weight: bold;
+    color: #34495e;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.filter-group .react-select-container {
+    min-width: 200px;
+}
+
+/* React-Select Customizations */
+.react-select__control {
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    box-shadow: none !important;
+    min-height: 38px !important;
+}
+
+.react-select__control--is-focused {
+    border-color: #3498db !important;
+}
+
+.react-select__indicator-separator {
+    display: none;
+}
+
+.bunker-table-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+
+.bunker-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.bunker-table thead tr {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.bunker-table th {
+    padding: 1rem 0.75rem;
+    font-weight: bold;
+    color: #555;
+    white-space: nowrap;
+}
+
+.bunker-table td {
+    padding: 1rem 0.75rem;
+    border-bottom: 1px solid #eef1f4;
+    color: #34495e;
+    white-space: nowrap;
+}
+
+.bunker-table tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+.no-records-found {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 2rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+}
+
+.status-badge.active {
+    background-color: #2ecc71; /* Green */
+}
+
+.status-badge.inactive {
+    background-color: #e74c3c; /* Red */
+}
+
+.action-cell {
+    width: 1%;
+    min-width: 150px;
+}
+
+.action-buttons-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 0;
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+
+.view-icon:hover { color: #3498db; }
+.edit-icon:hover { color: #f39c12; }
+.delete-icon:hover { color: #e74c3c; }
+
+.document-cell {
+    width: 1%;
+    text-align: center;
+}

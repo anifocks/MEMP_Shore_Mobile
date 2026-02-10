@@ -1,0 +1,708 @@
+/* Test Project/client/src/pages/TeamMemberPage.css */
+.member-page-container {
+    padding-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.member-header {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 95%;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* NEW: Wrapper for member image and its edit button */
+.member-image-wrapper {
+    position: relative; /* To position the overlay button */
+    width: 100px; /* Same as image width */
+    height: 100px; /* Same as image height */
+    margin-right: 25px;
+    border-radius: 50%; /* For circular clipping */
+    overflow: hidden; /* Ensures image and overlay are clipped */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Consistent with image style */
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.member-image-details {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(0, 100, 0, 0.55);
+    background-color: #f0f0f0;
+    display: block; /* Remove extra space below image */
+}
+
+/* NEW: Overlay edit button for image */
+.edit-image-overlay-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px; /* Size of the button */
+    height: 30px; /* Size of the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.edit-image-overlay-btn:hover {
+    background-color: rgba(0, 123, 255, 1);
+}
+
+/* NEW: Image Upload Controls */
+.image-upload-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align input and buttons to the start */
+    margin-left: 25px; /* Spacing from image */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 1px solid #eee; /* Visual separation from member info */
+    padding-left: 20px;
+    flex-grow: 1; /* Allow it to take available space */
+}
+
+.image-upload-controls input[type="file"] {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.image-upload-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.upload-image-btn,
+.cancel-image-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.upload-image-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+.upload-image-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-image-btn {
+    background-color: #6c757d; /* Grey */
+    color: white;
+}
+
+.cancel-image-btn:hover {
+    background-color: #5a6268;
+}
+
+.upload-image-btn:disabled,
+.cancel-image-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.image-error-message {
+    color: #dc3545; /* Red */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 0.85em;
+    text-align: center;
+    width: 100%; /* Occupy full width */
+}
+
+
+.member-info {
+    flex-grow: 1;
+}
+
+.member-info h1 {
+    color: #007000;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.8em;
+}
+
+.member-info p {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.task-section {
+    background-color: rgba(248, 249, 250, 0.9);
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 95%;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.task-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-section-header h2 {
+    color: #006400;
+    margin: 0;
+    font-size: 1.6em;
+}
+
+/* --- Toolbar Styles --- */
+.task-controls-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
+  gap: 15px; /* Space between items if they wrap or between left/right groups */
+}
+
+.toolbar-left-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Gap between "filter completed" group, "date filter" and "editmode" group */
+}
+
+.task-filters { /* This is for the 'filter completed' dropdown */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Gap between label and select */
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.task-filters label,
+.ui-mode-toggle label,
+.date-range-filter label { /* Grouped common label styles */
+  font-weight: normal;
+  color: #333;
+  font-size: 0.95em;
+  text-transform: lowercase;
+  margin-right: 4px; /* Small space after label text */
+}
+
+.filter-dropdown,
+.date-input { /* Shared style for dropdown and date inputs */
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+    background-color: white;
+    height: 36px; /* Consistent height for form elements in toolbar */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+.date-input {
+    width: auto; /* Or a fixed width like 130px or 150px if preferred */
+}
+
+
+.ui-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Gap between "editmode" label and first button, and between buttons */
+}
+
+.ui-mode-toggle .toggle-button {
+  background-color: transparent;
+  border: 1px solid transparent; /* Make it take up space like a button but look like text */
+  color: #007bff; /* Link-like color */
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 1em; /* Match label text size */
+  border-radius: 4px;
+  text-transform: lowercase;
+  line-height: 1.5; /* Ensure consistent height with other elements */
+  height: 36px; /* Consistent height */
+  box-sizing: border-box;
+  display: inline-flex; /* Align text vertically */
+  align-items: center; /* Align text vertically */
+}
+
+.ui-mode-toggle .toggle-button:hover {
+  text-decoration: underline;
+  background-color: rgba(0, 123, 255, 0.05); /* Very subtle hover */
+}
+
+.ui-mode-toggle .toggle-button.active {
+  color: #000; /* Or a more distinct color like a dark green */
+  font-weight: bold; /* Standard for active state */
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.05); /* Subtle active background */
+}
+
+.add-task-btn { /* This is the main "add new task" button */
+    background-color: #006400;
+    color: white;
+    border: none;
+    padding: 0 14px; /* Adjusted padding for height */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: lowercase;
+    height: 36px; /* Consistent height */
+    box-sizing: border-box;
+}
+.add-task-btn:hover {
+    background-color: #004d00;
+}
+.add-task-btn:disabled {
+    background-color: #a3b1a3;
+    cursor: not-allowed;
+}
+.add-task-btn svg { /* Ensuring icon is not too large */
+    font-size: 1.1em;
+}
+
+/* --- Date Range Filter Styles --- */
+.date-range-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between label, input, and buttons */
+}
+
+.date-filter-btn,
+.date-reset-btn {
+    padding: 0 12px; /* Adjusted padding for height */
+    border: 1px solid #006400;
+    background-color: #006400;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    height: 36px; /* Consistent height */
+    box-sizing: border-box;
+}
+.date-filter-btn:hover,
+.date-reset-btn:hover {
+    background-color: #004d00;
+    border-color: #004d00;
+}
+
+.date-reset-btn {
+    background-color: #6c757d; /* Secondary/neutral color for reset */
+    border-color: #6c757d;
+}
+.date-reset-btn:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+.date-filter-btn svg,
+.date-reset-btn svg {
+    margin-right: 4px; /* Space between icon and text */
+}
+
+
+/* --- Styles for Inline Add Task Form Container --- */
+.inline-form-container.add-form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 0; /* Toolbar now handles spacing above */
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.inline-form-container h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #006400;
+    font-size: 1.4em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- Task Table and Container Styles --- */
+.task-container {
+    margin-top: 15px;
+    overflow-x: auto; /* Enables horizontal scrolling for the table */
+    max-width: 100%; /* Ensures the container doesn't expand the page width */
+}
+
+.task-table {
+    width: 100%; /* Makes table try to fit container */
+    min-width: 1200px; /* Example: A minimum width that forces scrolling on smaller viewports. Adjust as needed based on your columns. */
+    border-collapse: collapse;
+    background-color: #fff;
+    font-size: 0.90em;
+}
+
+.task-table th,
+.task-table td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+    /* Default for most cells: prevent wrapping, show ellipsis */
+    max-width: 200px; /* Max width for a cell before ellipsis applies */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Specific column overrides */
+.task-table td:first-child, /* Task Description */
+.task-table th:first-child {
+    white-space: normal; /* Allow wrapping for description */
+    min-width: 200px;    /* Minimum width */
+    max-width: 350px;    /* Max width before wrapping really kicks in */
+    word-break: break-word; /* Break long words */
+}
+
+.task-table th {
+    background-color: #007000; /* Dark green background for headers */
+    color: white;
+    position: sticky; /* Makes headers stick to top on vertical scroll */
+    top: 0;
+    z-index: 10; /* Ensure headers are above other content during scroll */
+    white-space: nowrap; /* Keep header text on one line */
+}
+
+/* Example min-widths for other columns - adjust as necessary */
+.task-table th:nth-child(2), .task-table td:nth-child(2) { min-width: 120px; } /* Application */
+.task-table th:nth-child(3), .task-table td:nth-child(3) { min-width: 100px; } /* Status */
+.task-table th:nth-child(4), .task-table td:nth-child(4) { min-width: 80px; text-align: right; } /* Man Hours */
+.task-table th:nth-child(5), .task-table td:nth-child(5) { min-width: 100px; } /* Jira Ticket */
+.task-table th:nth-child(6), .task-table td:nth-child(6) { min-width: 150px; } /* Task Date */
+.task-table th:nth-child(7), .task-table td:nth-child(7) { min-width: 150px; } /* Start Date */
+.task-table th:nth-child(8), .task-table td:nth-child(8) { min-width: 150px; } /* End Date */
+.task-table th:nth-child(9), .task-table td:nth-child(9) { min-width: 150px; } /* Completion Date */
+.task-table th:nth-child(10), .task-table td:nth-child(10) { min-width: 80px; text-align: center; } /* Completed */
+.task-table th:nth-child(11), .task-table td:nth-child(11) { min-width: 90px; white-space: nowrap; } /* Attachments */
+.task-table th:nth-child(12), .task-table td:nth-child(12) { min-width: 90px; white-space: nowrap; } /* Action */
+
+
+.task-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Zebra striping for rows */
+}
+
+.task-table tbody tr:hover {
+    background-color: #e9ecef; /* Hover effect for rows */
+}
+
+.task-table tr.inline-edit-row td { /* Row containing the inline edit form */
+    padding: 0;
+    background-color: #fdfdfd; /* Slightly different background for edit row */
+    /* No ellipsis or nowrap for the form container cell */
+    white-space: normal;
+    overflow: visible;
+    max-width: none;
+}
+.task-table tr.inline-edit-row .inline-task-form {
+    padding: 15px;
+    border: 2px solid #006400; /* Highlight inline edit form */
+    border-radius: 0 0 6px 6px; /* Rounded corners at the bottom */
+    background-color: #fff;
+}
+
+.task-table th.sortable-header {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection on click */
+    transition: background-color 0.15s ease;
+    position: relative; /* For positioning sort icon */
+}
+ .task-table th.sortable-header:hover {
+    background-color: #003800; /* Darker green on hover for sortable headers */
+ }
+ .task-table th.sortable-header > svg { /* Sort icon styling */
+    margin-left: 6px;
+    vertical-align: middle;
+    font-size: 0.9em;
+ }
+
+/* --- Utility and Status Text Styles --- */
+.jira-link { color: #0056b3; text-decoration: none; font-weight: 500; }
+.jira-link:hover { text-decoration: underline; color: #003d80; }
+.task-status-yes { color: #28a745; font-weight: bold; } /* Completed: Yes */
+.task-status-no { color: #dc3545; font-weight: bold; } /* Completed: No */
+.status-text-new { color: #17a2b8; }
+.status-text-in-progress { color: #007bff; }
+.status-text-completed { color: #28a745; }
+.status-text-on-hold { color: #ffc107; color: #8c6c05; } /* Adjusted On Hold to be more visible */
+.status-text-blocked { color: #dc3545; }
+.status-text-cancelled { color: #6c757d; }
+
+.edit-btn {
+    background-color: #007bff; /* Blue for edit button */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.edit-btn:hover { background-color: #0056b3; }
+.edit-btn:disabled {
+    background-color: #b0bec5; /* Disabled state for edit button */
+    cursor: not-allowed;
+}
+
+/* --- Modal Styles --- */
+.task-modal-overlay { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: fixed; 
+    z-index: 1050; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow-y: auto; 
+    background-color: rgba(0, 0, 0, 0.55); 
+}
+/* Updated Modal size for better preview */
+.task-modal-content { 
+    background-color: #ffffff; 
+    margin: 20px; 
+    padding: 25px 30px; 
+    border: none; 
+    width: 90%; 
+    max-width: 90%; /* Increased max-width */
+    height: 90vh; /* Set a default height based on viewport */
+    max-height: 90vh; /* Prevents modal from getting too tall */
+    border-radius: 8px; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+}
+.task-modal-close-btn { color: #6c757d; position: absolute; top: 12px; right: 18px; font-size: 26px; font-weight: bold; cursor: pointer; line-height: 1; padding: 5px; }
+.task-modal-close-btn:hover, .task-modal-close-btn:focus { color: #343a40; text-decoration: none; }
+.task-modal-title { color: #006400; margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid #e0e0e0; padding-bottom: 15px; font-size: 1.7em; font-weight: 600; }
+
+/* --- Shared Form Styles (for Modal and Inline Forms) --- */
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 500; color: #495057; }
+.form-control { width: 100%; padding: 10px 12px; border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; font-size: 1em; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
+.form-control:focus { border-color: #80bdff; outline: 0; box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); }
+textarea.form-control { min-height: 80px; }
+.form-row { display: flex; flex-wrap: wrap; gap: 20px; /* Replaces margin-left/right for easier spacing */ margin-bottom: 18px; }
+.form-col { flex: 1; min-width: 200px; /* No padding needed here if gap is used in form-row */ }
+.form-col .form-group { margin-bottom: 0; } /* If col directly contains form-group */
+
+/* Specific adjustments for inline forms */
+.inline-task-form .form-group { margin-bottom: 12px; }
+.inline-task-form .form-row { gap: 15px; margin-bottom: 12px; }
+.inline-task-form .form-control { font-size: 0.95em; padding: 8px 10px; }
+.inline-task-form textarea.form-control { min-height: 60px; }
+.inline-task-form .form-group label { font-size: 0.9em; }
+
+.form-error-message { color: #721c24; background-color: #f8d7da; padding: 10px 15px; border-radius: 4px; margin-bottom: 15px; text-align: center; border: 1px solid #f5c6cb; font-size: 0.9em; }
+
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; }
+
+.task-form-submit-btn { background-color: #006400; color: white; border: none; padding: 10px 18px; border-radius: 5px; cursor: pointer; font-size: 0.95em; font-weight: 500; display: flex; align-items: center; gap: 6px; transition: background-color 0.2s ease-in-out; }
+.task-form-submit-btn:hover { background-color: #004d00; }
+.task-form-submit-btn:disabled { background-color: #a3b1a3; cursor: not-allowed; }
+
+.task-form-cancel-btn { background-color: #6c757d; color: white; border: none; padding: 10px 18px; border-radius: 5px; cursor: pointer; font-size: 0.95em; font-weight: 500; display: flex; align-items: center; gap: 6px; transition: background-color 0.2s ease-in-out; }
+.task-form-cancel-btn:hover { background-color: #5a6268; }
+.task-form-cancel-btn:disabled { background-color: #b0b0b0; cursor: not-allowed; }
+
+/* --- Loading and Error States --- */
+.tasks-loading-state, .tasks-error-message { text-align: center; padding: 30px; font-size: 1.1em; color: #555; margin-top: 20px; }
+.tasks-error-message { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: .25rem; padding: .75rem 1.25rem; }
+.tasks-spinner { border: 5px solid rgba(0, 100, 0, 0.15); border-radius: 50%; border-top-color: #006400; width: 40px; height: 40px; animation: taskSpin 0.8s linear infinite; margin: 20px auto; }
+@keyframes taskSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* --- Attachment Modal Specific Styles --- */
+.attachments-modal-content {
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    width: 90vw !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.attachments-modal-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.attachments-list-pane {
+    width: 500px;
+    min-width: 350px;
+    max-height: 100%;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.attachments-list-pane h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.attachment-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attachment-table th, .attachment-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+}
+
+.attachment-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.attachment-table tr.selected {
+    background-color: #e9f0ff;
+    font-weight: bold;
+}
+
+.view-button, .download-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+    padding: 0;
+}
+
+.download-button:hover, .view-button:hover {
+    color: #0056b3;
+}
+
+.attachments-preview-pane {
+    flex-grow: 1; /* Takes all remaining horizontal space */
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.file-title {
+    margin: 0;
+}
+
+.preview-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.preview-actions .maximize-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #555;
+    padding: 5px;
+}
+
+.preview-content {
+    flex-grow: 1;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    overflow: hidden; /* Important for iframes/images to fill space correctly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-content iframe, .preview-content img {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.no-file-selected, .no-preview-available {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+.no-preview-available h4 {
+    color: #dc3545;
+}
+
+.download-button-large {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s;
+}
+
+.download-button-large:hover {
+    background-color: #0056b3;
+}
+
+.attachments-modal-content.maximized {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 98vw !important;
+    height: 98vh !important;
+    max-width: 98vw !important;
+    max-height: 98vh !important;
+}

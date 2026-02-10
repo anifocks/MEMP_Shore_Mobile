@@ -1,0 +1,599 @@
+/* client/src/pages/VoyageAddEditPage.css */
+
+/* General Form Styling */
+.voyage-add-edit-page-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.page-header h1 {
+    font-size: 2.2em;
+    color: #333;
+    margin: 0;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #0056b3;
+}
+
+.form-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.voyage-form .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    position: relative; /* Essential for positioning suggestions list */
+    margin-bottom: 15px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Spans all columns */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="datetime-local"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #495057;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group input[disabled],
+.form-group select[disabled],
+.form-group textarea[disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto; /* Override 100% width for checkboxes */
+}
+
+.required-star {
+    color: #dc3545; /* Red color for required indicator */
+    margin-left: 5px;
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
+}
+
+.submit-button, .cancel-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.submit-button:disabled {
+    background-color: #a0d9b4;
+    cursor: not-allowed;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none; /* For Link component */
+    display: inline-flex; /* For Link component */
+    align-items: center; /* For Link component */
+    justify-content: center; /* For Link component */
+}
+
+.cancel-button:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+.cancel-button:disabled {
+    background-color: #c1c7cd;
+    cursor: not-allowed;
+}
+
+.form-error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-level-error {
+    grid-column: 1 / -1; /* Ensures page-level errors span full width */
+}
+
+/* Custom Autocomplete Styles */
+
+.port-suggestions-list {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%; /* Matches input width */
+    z-index: 1000; /* Ensures it's above other elements */
+    left: 0; /* Align with input */
+    top: 100%; /* Position right below the input */
+}
+
+.port-suggestions-list li {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 0.95em;
+    color: #333;
+    border-bottom: 1px solid #eee; /* Separator between items */
+}
+
+.port-suggestions-list li:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.port-suggestions-list li:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+.no-options-message {
+    padding: 10px 12px;
+    font-size: 0.9em;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute; /* Position it like the list */
+    z-index: 1000;
+    left: 0;
+    top: 100%;
+}
+
+
+/* --- Voyage Legs Management Styles --- */
+
+.voyage-legs-section {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.voyage-legs-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.voyage-legs-section h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+}
+
+.voyage-legs-section .add-leg-btn {
+    padding: 8px 15px;
+    font-size: 1em;
+}
+
+/* Initial Legs Form Styles (used when legs are missing) */
+.initial-legs-form-container {
+    padding: 15px;
+    border: 1px solid #ffc107; /* Warning color border */
+    border-radius: 4px;
+    background-color: #fff3cd; /* Light warning background */
+    margin-bottom: 20px;
+}
+
+.initial-legs-form-container .form-error-message {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #856404; /* Darker text for warning */
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    font-weight: 500;
+}
+
+.initial-legs-form .form-group label {
+    font-weight: normal;
+}
+
+.initial-legs-form .info-text {
+    display: block;
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.initial-legs-form .form-actions-left {
+    justify-content: flex-start;
+    padding-top: 10px;
+}
+
+/* Table Styles */
+.voyage-legs-section .voyage-legs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #fff;
+    font-size: 0.9em;
+}
+
+.voyage-legs-section .voyage-legs-table thead th {
+    background-color: #e9ecef; 
+    color: #495057;
+    font-weight: 600;
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid #ced4da;
+}
+
+.voyage-legs-section .voyage-legs-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.voyage-legs-section .voyage-legs-table tbody td {
+    padding: 0.75rem;
+    color: #495057;
+    white-space: nowrap;
+}
+
+.voyage-legs-section .table-responsive {
+    overflow-x: auto;
+}
+
+/* Edit button in table */
+.btn-edit {
+    padding: 6px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.2s;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+/* --- Modal Styles (Crucial for display) --- */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Ensure it's above all other content */
+    overflow: auto; /* Allow scrolling if content is taller than viewport */
+}
+
+/* Base Modal Content Styles */
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: auto; /* Let content define width */
+}
+
+/* Landscape View (Required for your specific request) */
+.modal-landscape {
+    width: 90%; 
+    max-width: 1200px; /* Increased max-width to fit 8 columns of data */
+    min-height: 400px;
+}
+/* Specific class for the Initial Create Modal to use wider layout */
+.modal-lg-initial {
+    max-width: 1000px; 
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+}
+
+.modal-header .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #6c757d;
+    line-height: 1;
+}
+
+.modal-info-text {
+    color: #555;
+    margin-bottom: 20px;
+    padding: 0 5px;
+}
+
+/* Modal Form Specific Overrides */
+.modal-content .voyage-form {
+    margin: 0;
+    padding: 0;
+}
+
+.modal-content .form-grid {
+    /* Adjust grid template for better use of landscape space */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+}
+
+/* Styles for the two-column split inside the initial creation modal */
+.legs-split-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+@media (min-width: 900px) {
+    .legs-split-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.leg-form-section {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.leg-form-section h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #007bff;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.initial-legs-grid {
+    /* Adjust grid to fit more fields */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.initial-legs-grid .form-group {
+    grid-column: span 1; 
+}
+
+
+.modal-content .form-actions {
+    justify-content: flex-end;
+}
+/* --- END NEW --- */
+
+/* --- FILE UPLOAD STYLING TO MATCH BUNKER (image_0eb7c6.png) --- */
+
+/* File Input Group wrapper for inline display */
+.form-group .file-input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between button and text input */
+}
+
+/* Style the invisible input placeholder text field */
+.form-group .file-chosen-display {
+    flex-grow: 1;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px 12px;
+    background-color: #f8f9fa; /* Light background for disabled look */
+    color: #495057;
+    cursor: default;
+}
+
+/* Style the custom button (label for the hidden file input) */
+.form-group .file-upload-button {
+    background-color: #6c757d; /* Gray color similar to image */
+    color: white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0; /* Prevent the button from shrinking */
+}
+
+.form-group .file-upload-button:hover {
+    background-color: #5a6268;
+}
+
+/* List for selected files */
+.selected-files-list {
+    margin-top: 10px;
+    border-top: 1px dashed #ced4da;
+    padding-top: 10px;
+}
+
+.selected-files-list p {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.attachment-preview-list,
+.existing-files-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.attachment-preview-list li,
+.existing-files-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+    font-size: 0.9em;
+}
+
+.remove-file-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: 1em;
+}
+
+.attachment-link {
+    display: inline-flex;
+    align-items: center;
+    color: #007bff;
+    text-decoration: none;
+}
+/* --- END FILE UPLOAD STYLING --- */
+/* --- END NEW --- */
+
+/* Adjustments for react-select components if using default styles from library */
+/* You might not need this section if customStyles handles it completely */
+/* .react-select__control {
+    border: 1px solid #ced4da !important;
+    border-radius: 4px !important;
+    min-height: 40px !important;
+    box-shadow: none !important;
+}
+
+.react-select__control--is-focused {
+    border-color: #80bdff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+.react-select__value-container {
+    padding: 0 8px !important;
+}
+
+.react-select__indicator-separator {
+    background-color: #ced4da !important;
+}
+
+.react-select__dropdown-indicator {
+    padding: 8px !important;
+}
+
+.react-select__menu {
+    border: 1px solid #ced4da !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    z-index: 9999 !important;
+}
+
+.react-select__option {
+    padding: 10px 12px !important;
+    font-size: 0.95em !important;
+} */

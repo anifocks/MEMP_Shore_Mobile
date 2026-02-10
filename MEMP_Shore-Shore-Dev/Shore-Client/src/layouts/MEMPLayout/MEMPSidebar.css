@@ -1,0 +1,183 @@
+/* File: Client/src/layouts/MEMPLayout/MEMPSidebar.css */
+
+.memp-sidebar-container {
+    width: 260px; /* Default width */
+    background-color: #1e293b; /* Dark Slate Blue theme */
+    color: #e2e8f0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+    position: fixed; /* Stick to left */
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+  
+.memp-sidebar-container.collapsed {
+    width: 80px; /* Collapsed width */
+}
+  
+/* Header */
+.memp-sidebar-top-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #0f172a; /* Darker header */
+    border-bottom: 1px solid #334155;
+}
+  
+.memp-sidebar-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+  
+.memp-sidebar-toggle-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+.memp-sidebar-toggle-btn:hover {
+    color: #fff;
+}
+  
+/* Navigation List */
+.memp-sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 15px;
+}
+  
+.memp-sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.memp-sidebar-item {
+    margin-bottom: 4px;
+    position: relative;
+}
+  
+.memp-sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.95rem;
+    border-left: 3px solid transparent;
+}
+  
+.memp-sidebar-link:hover {
+    background-color: #334155;
+    color: #fff;
+}
+  
+.memp-sidebar-link.active {
+    background-color: #334155;
+    color: #38bdf8; /* Light Blue highlight */
+    border-left-color: #38bdf8;
+    font-weight: 600;
+}
+  
+.memp-sidebar-icon-container {
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-right: 12px;
+}
+  
+/* Text hides on collapse */
+.memp-sidebar-link-text {
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.2s;
+    flex-grow: 1;
+}
+  
+.memp-sidebar-container.collapsed .memp-sidebar-link-text,
+.memp-sidebar-container.collapsed .submenu-arrow {
+    display: none;
+    opacity: 0;
+}
+  
+.memp-sidebar-container.collapsed .memp-sidebar-link {
+    padding: 15px 0;
+    justify-content: center;
+}
+  
+.memp-sidebar-container.collapsed .memp-sidebar-icon-container {
+    margin-right: 0;
+}
+
+/* --- SUBMENU STYLES --- */
+.submenu-arrow {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-left: auto; /* Push to right */
+}
+
+.memp-sidebar-submenu {
+    background-color: #0f172a; /* Slightly darker for submenu */
+    padding: 5px 0;
+}
+
+.memp-sidebar-subitem {
+    margin: 0;
+}
+
+.memp-sidebar-sublink {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 10px 56px; /* Indent subitems */
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.memp-sidebar-sublink:hover {
+    color: #fff;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.memp-sidebar-sublink.active {
+    color: #38bdf8;
+    font-weight: 500;
+}
+
+.memp-sub-icon {
+    font-size: 0.8rem;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+
+/* Scrollbar styling */
+.memp-sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+.memp-sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+.memp-sidebar-nav::-webkit-scrollbar-thumb {
+    background-color: #475569;
+    border-radius: 3px;
+}                                                                        

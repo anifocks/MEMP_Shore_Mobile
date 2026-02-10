@@ -1,0 +1,205 @@
+/* Bunker Modified/Client/src/pages/VesselReportsPage.css */
+.page-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    /* FIX: Transparent background */
+    background-color: transparent !important;
+    min-height: 100vh;
+}
+
+.page-title {
+    color: #ffffff; /* White text for visibility */
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    /* border-bottom: 3px solid #c2e0ff; REMOVED BORDER FOR CLEANER LOOK */
+    padding-bottom: 0.5rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Drop shadow for text */
+}
+
+.filter-actions-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent filter bar */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+    padding: 0.5rem;
+    border: 1px solid #cdd6de;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.actions-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Specific button classes from JSX */
+.apply-filters-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    margin-bottom: 22px;
+}
+.apply-filters-btn:hover { background-color: #5a6268; }
+
+.add-report-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.add-report-btn:hover { background-color: #0056b3; }
+
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* FIX: Glassmorphism Card Style */
+.content-card {
+    background-color: rgba(255, 255, 255, 0.95); /* High opacity white */
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e6eb;
+}
+
+.data-table th {
+    background-color: rgba(242, 245, 247, 0.8); /* Slight transparency */
+    font-weight: 600;
+    color: #1a4f72;
+}
+
+.data-table tbody tr:hover {
+    background-color: rgba(248, 251, 253, 0.5);
+}
+
+.action-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-icon {
+    font-size: 1.2rem;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.action-icon:hover {
+    color: #0056b3;
+}
+
+.action-icon.delete-icon {
+    color: #dc3545;
+}
+
+.action-icon.delete-icon:hover {
+    color: #c82333;
+}
+
+.no-reports {
+    text-align: center;
+    padding: 2rem;
+    color: #777;
+    font-style: italic;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+}

@@ -1,0 +1,187 @@
+/* MEMP_Shore_Fleet_imlementataion/MEMP-Shore-Client/src/pages/MEMPOverviewPage.css */
+
+.memp-overview-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    overflow-y: auto; 
+    overflow-x: auto; 
+    padding: 20px;
+    box-sizing: border-box;
+    /* CRITICAL: Transparent background allows Global Background / Color Picker to work */
+    background-color: transparent !important; 
+    color: #333;
+}
+
+.memp-overview-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; 
+}
+
+.memp-overview-title {
+    /* White text with shadow ensures visibility on both Dark Images and Light Colors */
+    color: #0f0404; 
+    text-align: center;
+    margin-bottom: 20px; 
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); 
+    flex-shrink: 0;
+}
+
+/* Filter Ribbon - Glass Effect */
+.memp-filter-ribbon {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    min-height: 50px; 
+    flex-shrink: 0; 
+}
+
+.memp-filter-ribbon .filter-controls-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 25px; 
+    align-items: center;
+}
+
+.memp-filter-ribbon .filter-group {
+    display: flex;
+    align-items: center;
+    min-height: 30px; 
+    flex-shrink: 0;
+}
+
+.memp-filter-ribbon .filter-group label {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    flex-shrink: 0; 
+}
+
+.fleet-select-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.fleet-select-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* Map Section - Glass Effect */
+.fleet-map-section-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; 
+    height: 60vh; 
+    min-height: 400px; 
+    flex-shrink: 0; 
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+
+.section-header h2 {
+    color: #333;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    flex-shrink: 0; 
+    margin-top: 0;
+}
+
+.fleet-recent-location-map-wrapper {
+    flex-grow: 1; 
+    height: 100%; 
+    position: relative; 
+}
+
+/* Latest Reports Table Container - Glass Effect */
+.latest-reports-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.memp-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.memp-data-table thead tr {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+}
+
+.memp-data-table th, 
+.memp-data-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.memp-data-table tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+.memp-data-table tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+.text-center { text-align: center; }
+.fw-bold { font-weight: bold; }
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.status-badge.laden {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.status-badge.ballast {
+    background-color: #e2e3e5;
+    color: #41464b;
+    border: 1px solid #d3d6d8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .fleet-map-section-container {
+        height: 50vh; 
+    }
+}

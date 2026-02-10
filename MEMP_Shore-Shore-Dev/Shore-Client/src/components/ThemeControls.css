@@ -1,0 +1,86 @@
+.theme-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bg-toggle-pill {
+    display: flex;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(145, 158, 171, 0.24);
+    border-radius: 8px;
+    padding: 4px;
+    backdrop-filter: blur(10px);
+}
+
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    color: #454f5b;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggle-btn.active {
+    background-color: #212b36;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.color-controls-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.color-picker-wrapper {
+    position: relative;
+}
+
+.hidden-color-input {
+    position: absolute;
+    width: 0; height: 0; opacity: 0; pointer-events: none;
+}
+
+.control-btn {
+    background-color: white;
+    border: 1px solid #dfe3e8;
+    color: #637381;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background-color: #f4f6f8;
+    color: #212b36;
+    transform: translateY(-1px);
+}
+
+.control-btn.reset-btn {
+    color: #ff5630;
+    border-color: #ff5630;
+    background-color: #fff0ed;
+}
+
+.color-preview {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: inline-block;
+}

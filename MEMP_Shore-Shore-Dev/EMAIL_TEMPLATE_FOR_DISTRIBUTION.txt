@@ -1,0 +1,113 @@
+Subject: MEMP Shore Excel Templates - One-Time Setup Required (5 Minutes)
+
+Dear Team,
+
+We're rolling out the MEMP Shore Excel Template system. You need to complete a quick ONE-TIME setup on your computer (takes 5 minutes), and after that, all templates will work automatically forever!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📥 DOWNLOAD THE SETUP PACKAGE
+
+[Option 1] Download from network share: \\[YOUR_NETWORK_PATH]\MEMP_Setup\
+[Option 2] Download from the attached ZIP file
+[Option 3] Access online: https://veemsonboardupgrade.theviswagroup.com/setup.html
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⚡ QUICK START (3 Steps)
+
+1. Extract the setup files to your Desktop
+2. Double-click: MEMP_OneTime_Setup.bat
+3. Follow the prompts (takes 2-5 minutes)
+
+That's it! After this one-time setup, you can use any MEMP template immediately.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ HOW YOU KNOW IT'S WORKING
+
+After setup, when you open ANY MEMP template:
+- Taskpane appears automatically on the right side
+- You see these buttons: FETCH LATEST DATA / VALIDATE REPORT / SEND REPORT
+- No errors, everything just works!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔄 EVERYDAY WORKFLOW (After Setup)
+
+From now on:
+1. Download MEMP template from the system
+2. Open in Excel
+3. Taskpane loads automatically
+4. Use the buttons to work with your reports
+
+No setup, no configuration - just open and use! 🎯
+
+═══════════════════════════════════════════════════════════════════════════════
+
+❓ COMMON QUESTIONS
+
+Q: Do I need to do setup for every template?
+A: NO! Setup is ONE-TIME per computer. After that, ALL templates work automatically.
+
+Q: I use multiple computers - do I setup on each?
+A: YES - run setup once on each computer you use.
+
+Q: What if I get an error?
+A: Run the TEST_SETUP.bat file (included in the package) to diagnose the issue automatically. Then contact IT if needed.
+
+Q: Is this safe?
+A: YES! The add-in is served securely via HTTPS from our official domain:
+   https://veemsonboardupgrade.theviswagroup.com
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📋 FILES IN THE PACKAGE
+
+MEMP_OneTime_Setup.bat  - Main setup tool (run this first!)
+TEST_SETUP.bat          - Diagnostic tool (if you have issues)
+USER_QUICK_GUIDE.md     - Detailed instructions
+README_FOR_USERS.md     - Complete documentation
+QUICK_REFERENCE_CARD.txt - One-page cheat sheet (print this!)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🆘 NEED HELP?
+
+1. Run TEST_SETUP.bat (auto-diagnoses problems)
+2. Check USER_QUICK_GUIDE.md (detailed troubleshooting)
+3. Contact IT Help Desk with:
+   - Screenshot of the error
+   - Which step failed during setup
+   - Output from TEST_SETUP.bat
+
+Support: [YOUR_SUPPORT_EMAIL]
+Phone: [YOUR_SUPPORT_PHONE]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⏰ DEADLINE
+
+Please complete the setup by [INSERT_DATE]. This ensures you can use MEMP templates when they're assigned to you.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+💡 REMEMBER
+
+TODAY: 5 minutes to run setup
+FOREVER: Download templates → Open → Use!
+
+Simple as that! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Best regards,
+[YOUR_NAME]
+[YOUR_TITLE]
+[YOUR_DEPARTMENT]
+
+---
+MEMP Shore © 2026 - Viswa Group
+https://veemsonboardupgrade.theviswagroup.com
+
+P.S. The setup is automated and guides you through every step. You can't break anything - just follow the prompts! 😊

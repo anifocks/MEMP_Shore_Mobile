@@ -1,0 +1,177 @@
+/* src/pages/AddEditUserPage.css */
+
+.add-edit-user-page {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ccc;
+}
+
+.page-header h1 {
+    color: #007bff;
+    margin: 0;
+}
+
+.back-button {
+    background: none;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.user-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    display: flex;
+    gap: 10px;
+}
+.form-group.required label:after {
+    content: '*';
+    color: #dc3545;
+    margin-left: 2px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.optional-note {
+    font-weight: normal;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.save-button {
+    margin-top: 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover:not(:disabled) {
+    background-color: #1e7e34;
+}
+
+.save-button:disabled {
+    background-color: #90ee90;
+    cursor: not-allowed;
+}
+
+/* Image Upload Styling */
+.image-upload-group {
+    align-items: center;
+    margin-bottom: 30px;
+    grid-column: 1 / -1; /* Span full width above the grid */
+    flex-direction: row;
+    gap: 40px;
+}
+
+.image-preview-container {
+    text-align: center;
+}
+
+.profile-image-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.default-user-icon {
+    font-size: 100px;
+    color: #ccc;
+}
+
+.current-image-path {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload-label {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+}
+
+.custom-file-upload-label:hover {
+    background-color: #0056b3;
+}

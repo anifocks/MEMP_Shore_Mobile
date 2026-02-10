@@ -1,0 +1,530 @@
+/* Shore-Client/src/pages/VesselStatusPage.css */
+
+.vessel-status-page {
+    padding: 20px;
+    background-color: transparent !important; 
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    /* 🟢 CRITICAL: Enforce border-box globally for this page */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Ensure all children inherit box-sizing */
+.vessel-status-page * {
+    box-sizing: border-box;
+}
+
+.status-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    /* 🟢 FIX: Ensure header is full width */
+    width: 100%;
+}
+
+.status-header-bar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1e293b;
+}
+
+.ship-selector-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ship-selector-wrapper label {
+    font-weight: 600;
+    color: #475569;
+}
+
+.status-dropdown {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    min-width: 200px;
+}
+
+/* --- VERTICAL STACK FOR COMPONENTS --- */
+.status-vertical-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* 🟢 FIX: Remove width restriction to use full page */
+    width: 100%; 
+    max-width: none; /* Was 1400px, now removed */
+    margin: 0; /* Remove auto margins */
+}
+
+.status-card {
+    background: rgba(255, 255, 255, 0.95); 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* 🟢 FIX: Ensure card is full width */
+    width: 100%;
+    color: #333 !important; 
+}
+
+.card-header {
+    background: rgba(241, 245, 249, 0.9);
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* View Toggle Styles */
+.view-toggle-container {
+    display: flex;
+    background: #e2e8f0;
+    border-radius: 6px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+    color: #334155;
+}
+
+.toggle-btn.active {
+    background: #fff;
+    color: #007bff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.report-date, .voyage-badge {
+    background: #0f172a;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.voyage-badge { background: #0ea5e9; }
+
+/* --- REPORT BODY SPLIT --- */
+.report-body-split {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.report-details-panel {
+    flex: 2; 
+    border-right: 1px solid #e2e8f0;
+    padding: 20px;
+    min-width: 400px;
+}
+
+.report-map-panel {
+    flex: 1; 
+    padding: 20px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-inner-wrapper {
+    flex-grow: 1;
+    min-height: 500px; 
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    position: relative;
+    background: #f1f5f9;
+}
+
+.globe-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Report Grid Styles */
+.report-grid {
+    display: grid;
+    /* 🟢 FIX: Use auto-fit to allow grid to stretch fully */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px 25px;
+}
+
+.report-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 5px;
+}
+
+.report-row.full {
+    grid-column: 1 / -1;
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 4px;
+    border-bottom: none;
+}
+
+.report-row label {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.report-row span {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.divider {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    line-height: 0.1em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.divider span {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 0 10px;
+    color: #3b82f6;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* Voyage Analysis Styles */
+.voyage-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.voyage-kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.v-kpi {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.v-kpi .lbl {
+    display: block;
+    font-size: 0.85rem;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.v-kpi .val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.v-kpi .val small {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-weight: normal;
+}
+
+.voyage-section h4 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    color: #475569;
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 5px;
+}
+
+.duration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    align-items: center;
+}
+
+.dur-item label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    color: #64748b;
+}
+
+.bar-container {
+    background: #f1f5f9;
+    height: 24px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.bar {
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.bar-container span {
+    position: relative;
+    z-index: 1;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.fill-sailing { background: #dbeafe; color: #1e40af; }
+.fill-anchor { background: #fef3c7; color: #92400e; }
+.fill-port { background: #dcfce7; color: #166534; }
+
+.dur-total {
+    text-align: center;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Fuel Tables */
+.fuel-tables-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.mini-table th {
+    background: #f8fafc;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid #e2e8f0;
+    color: #64748b;
+}
+
+.mini-table td {
+    padding: 8px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+}
+
+.loading-container, .no-data {
+    text-align: center;
+    padding: 50px;
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.no-data { color: #64748b; text-shadow: none; }
+.map-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: #f1f5f9;
+    color: #94a3b8;
+}
+
+@media (max-width: 1024px) {
+    .report-body-split {
+        flex-direction: column;
+    }
+    .report-details-panel {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    .report-map-panel {
+        min-height: 400px;
+    }
+    .fuel-tables-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ... (Existing styles) ... */
+
+/* 🟢 NEW: Voyage Selector Dropdown in Header */
+.voyage-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+}
+
+.voyage-selector label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.voyage-dropdown {
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    outline: none;
+    cursor: pointer;
+}
+
+/* 🟢 NEW: Port Info Row (From -> To) */
+.voyage-port-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.port-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.port-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.port-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.port-arrow {
+    font-size: 1.2rem;
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+/* ... (Keep all previous styles for layout, cards, etc.) ... */
+
+/* 🟢 UPDATED: Voyage Selector to look like the "Blue Badge" */
+.voyage-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* Original Badge Style */
+    background-color: #0ea5e9; 
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 15px; 
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.voyage-selector:hover {
+    background-color: #0284c7; /* Slightly darker on hover */
+}
+
+.voyage-selector label {
+    font-size: 0.85rem;
+    color: #ffffff; /* White Label */
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.voyage-dropdown {
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff; /* White Text */
+    outline: none;
+    cursor: pointer;
+    padding-right: 20px; /* Space for custom arrow if needed */
+    
+    /* Optional: Remove default browser arrow to style it cleaner if desired */
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    /* appearance: none; */
+}
+
+/* Ensure the dropdown options are readable (Black text on White bg) */
+.voyage-dropdown option {
+    color: #333333;
+    background-color: #ffffff;
+    font-weight: 500;
+    padding: 10px;
+}
+
+/* ... (Keep existing styles for port row, grid, etc.) ... */

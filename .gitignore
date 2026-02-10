@@ -1,0 +1,69 @@
+# Node.js
+node_modules/
+
+# Android Studio
+.gradle/
+build/
+local.properties
+*.iml
+*.apk
+*.ap_*
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# Misc
+.env
+.idea/
+
+# Ignore test output
+coverage/
+
+# Ignore system files
+*.swp
+*.swo
+
+# Ignore generated files
+/dist/
+
+# Ignore backup files
+*.bak
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Excel files
+*.xlsm
+*.xlsx
+
+# Ignore uploads
+public/uploads/
+
+# Ignore other temp files
+*.tmp
+*.temp
+
+# Ignore package-lock
+package-lock.json
+yarn.lock
+
+# Ignore npm debug log
+npm-debug.log*
+
+# Ignore JetBrains IDEs
+*.idea/
+
+# Ignore test results
+TEST_RESULTS.md

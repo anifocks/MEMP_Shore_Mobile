@@ -1,0 +1,396 @@
+/* Test Project/client/src/pages/TeamPage.css */
+
+.team-page-container {
+    /* This container is rendered within DashboardPage's "dashboard-main-content-area" */
+    /* No specific top padding needed here as parent handles space for fixed menu */
+    padding-bottom: 20px;
+    width: 100%; /* Takes width from .dashboard-main-content-area */
+    box-sizing: border-box;
+}
+
+.team-section {
+    background-color: rgba(240, 240, 240, 0.75);
+    padding: 30px;
+    margin: 0 auto; /* Centers this section within .team-page-container */
+    border-radius: 10px;
+    max-width: 1100px; /* Max width for the team cards area */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.team-section h1 {
+    text-align: center;
+    color: #007000;
+    margin-bottom: 40px;
+    font-size: 2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;         /* Allows cards to wrap to the next line */
+    justify-content: center; /* Centers cards on the line or the last line */
+    gap: 25px;               /* Space between cards */
+    padding: 0 5px;          /* Small padding if cards get too close to edges */
+}
+
+.team-member {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    /* Sizing for cards to allow multiple per row */
+    flex-grow: 0; /* Don't grow beyond basis unless necessary */
+    flex-shrink: 1; /* Can shrink if needed */
+    flex-basis: 280px; /* Ideal starting width - adjust this to fit more/less per row */
+                       /* For ~3 per row in 1100px container with 25px gap: (1100 - 2*25)/3 = ~350.
+                          So flex-basis could be up to ~330px if max-width allows.
+                          Let's try a basis that allows 3 to fit comfortably.
+                          e.g., 300px. (3 * 300) + (2 * 25) = 900 + 50 = 950px. This fits in 1100px.
+                       */
+    max-width: 320px;  /* Max width for a card */
+    min-width: 260px;  /* Min width before it absolutely must wrap */
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(200, 200, 200, 0.3);
+    box-sizing: border-box;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.team-member-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid rgba(0, 100, 0, 0.6);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.team-member h2 {
+    color: #006400;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+    font-weight: 600;
+    width: 100%;
+}
+
+.team-member p {
+    color: #444;
+    margin-bottom: 5px;
+    font-size: 0.95em;
+    width: 100%;
+}
+
+.team-member.add-member-card {
+    background-color: rgba(230, 240, 230, 0.8);
+    border: 2px dashed #006400;
+    color: #006400;
+}
+
+.team-member.add-member-card:hover {
+    background-color: rgba(220, 235, 220, 0.9);
+    border-style: solid;
+}
+
+.add-member-icon-container {
+    margin-bottom: 15px;
+}
+
+.team-member.add-member-card h2 {
+    font-size: 1.2em;
+}
+
+.loading-state,
+.error-state {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.1em;
+    color: #006400;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.error-state {
+    color: #c00;
+}
+
+.spinner {
+    border: 6px solid rgba(0, 100, 0, 0.15);
+    border-radius: 50%;
+    border-top: 6px solid #006400;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 25px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ... existing styles ... */
+
+.deactivate-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Or flex-end, or however you want to align it */
+    margin-top: 15px;
+}
+
+.deactivate-button {
+    background-color: #ffc107; /* A warning yellow */
+    color: #212529;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+    transition: background-color 0.2s ease;
+}
+
+.deactivate-button:hover {
+    background-color: #e0a800;
+}
+
+/* Optional: If you want the deactivate button to be less prominent initially on card hover */
+.team-member .deactivate-btn-container {
+    /* visibility: hidden; */ /* Example: hide by default */
+    opacity: 0.7;
+}
+.team-member:hover .deactivate-btn-container {
+    /* visibility: visible; */ /* Show on card hover */
+    opacity: 1;
+}
+
+/* Add these styles at the end of your existing TeamPage.css */
+
+/* Styles for the Deactivate Button and its Wrapper */
+.deactivate-button-wrapper {
+  width: 100%; /* Allows text-align to work if button is inline-block */
+  text-align: center; /* Centers the button if it's inline-block */
+  margin-top: 12px;  /* Space above the button */
+  padding-bottom: 5px; /* Ensure some space at the bottom of the card if this is the last item */
+}
+
+.deactivate-button {
+  background-color: #ffc107; /* Warning yellow */
+  color: #212529;         /* Dark text for contrast */
+  border: 1px solid #dda700; /* Slightly darker border */
+  padding: 6px 12px;       /* Comfortable padding */
+  border-radius: 4px;      /* Rounded corners */
+  cursor: pointer;
+  font-size: 0.875em;      /* Standard small button font size */
+  font-weight: 500;
+  display: inline-flex;    /* Aligns icon and text nicely on the same line */
+  align-items: center;     /* Vertically align icon and text */
+  /* gap: 5px; Remove gap if using inline style for icon margin instead */
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.deactivate-button:hover {
+  background-color: #e0a800; /* Darker yellow on hover */
+  border-color: #c69500;
+}
+
+/* Ensure the icon inside the button is vertically aligned if needed, though inline-flex should handle it */
+.deactivate-button svg {
+  vertical-align: middle; /* Or adjust as needed */
+}
+
+/* ADD THIS TO THE END OF YOUR TeamPage.css FILE */
+
+.team-page-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4A5568;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.team-page-controls:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.inactive-member {
+    opacity: 0.6;
+    background: #f0f0f0;
+}
+
+.inactive-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #718096;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/*
+  If the card (.team-member) has a fixed height or very specific padding,
+  adding a new element (the button wrapper) might cause overflow or squishing.
+  Your .team-member class seems to use flex-basis and max-width without a fixed height,
+  so it should generally accommodate an extra element in its column flow.
+  The .team-member already has align-items: center, which will center the
+  .deactivate-button-wrapper horizontally.
+*/
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Styles for the simple text-based Toggle control */
+.team-page-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjusts space between icon and text */
+    color: #4A5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.team-page-controls:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Styles for INACTIVE member cards */
+.inactive-member {
+    opacity: 0.65;
+    background: rgba(226, 232, 240, 0.85); /* A slightly grayed-out background */
+    cursor: not-allowed;
+}
+
+.inactive-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #718096;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.reactivate-button {
+    background-color: #28a745; /* A success green */
+    color: white;
+    border: 1px solid #1e7e34;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.reactivate-button:hover {
+    background-color: #218838;
+}
+
+/* Styles for the Toggle Switch UI */
+.team-page-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toggle-label {
+    color: #4A5568;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.view-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.view-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+    background-color: #4299E1;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}

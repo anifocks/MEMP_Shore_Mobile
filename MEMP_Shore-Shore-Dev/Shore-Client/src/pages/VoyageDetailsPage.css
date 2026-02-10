@@ -1,0 +1,247 @@
+/* VoyageDetailsPage.css - Replicated from VesselDetailsPage.css for consistent styling */
+
+.vessel-details-container {
+    padding: 2rem;
+    background-color: #f9fafb;
+}
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.details-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+.back-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+.details-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 1.5rem;
+}
+@media (min-width: 1024px) {
+    .details-layout {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for cards on larger screens */
+    }
+}
+/* Removed left-column and right-column as the main layout will now handle card distribution directly */
+
+/* Styles for DetailCard and DetailItem, now used by VoyageDetailsPage */
+.detail-card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+}
+.detail-card-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.75rem;
+}
+.detail-card-title svg {
+    margin-right: 0.5rem;
+    color: #6b7280;
+}
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default to 1 column for items within card */
+    gap: 1rem 1.5rem;
+}
+@media (min-width: 768px) {
+    .detail-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns for items within card on larger screens */
+    }
+}
+.detail-item {
+    padding: 0.5rem 0;
+    display: flex; /* Use flexbox for stacking */
+    flex-direction: column; /* Stack label and value vertically */
+}
+.detail-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 0.25rem; /* Space between label and value */
+}
+.detail-value {
+    font-size: 1rem;
+    color: #111827;
+}
+
+/* Loading and error states - common styles */
+.loading-state, .error-state { padding: 2.5rem; text-align: center; }
+.error-state { color: #ef4444; }
+
+/* Styles for image-card, info-ship-name, etc., are specific to VesselDetailsPage
+   and are not included here as VoyageDetailsPage doesn't have an image card. */
+
+/* New styles for the SeaRouteMap */
+.voyage-map-section {
+    margin-top: 1.5rem;
+}
+
+.sea-route-map-container {
+    border-radius: 0.5rem; /* Matches card border-radius */
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Matches card shadow */
+    margin-top: 1rem; /* Space below h2 */
+}
+
+.ship-marker {
+  transform: rotate(0deg);
+  transition: transform 0.1s linear; /* Smooth rotation transition */
+}
+
+/* Optional: Hide Mapbox attribution */
+.mapboxgl-ctrl-bottom-right,
+.mapboxgl-ctrl-bottom-left {
+    display: none !important;
+}
+
+/* --- NEW: Voyage Legs Table Styles --- */
+.voyage-legs-section {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.voyage-legs-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.voyage-legs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.voyage-legs-table thead th {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-weight: 600;
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.voyage-legs-table tbody tr {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.voyage-legs-table tbody td {
+    padding: 0.75rem;
+    color: #374151;
+    font-size: 0.9em;
+}
+
+.voyage-legs-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Ensure details-table is responsive if it wraps */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* --- NEW: Modal Styles --- */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Ensure it's above all other content */
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.modal-lg {
+    min-width: 650px; /* Adjust size for larger content */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+}
+
+.modal-header .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #6c757d;
+    line-height: 1;
+}
+
+/* Modal Form Specific Overrides */
+.modal-content .voyage-form {
+    margin: 0;
+    padding: 0;
+}
+
+.modal-content .form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tighter grid for modal */
+    gap: 15px;
+}
+
+.modal-content .form-actions {
+    justify-content: flex-end;
+}
+
+/* Edit button in table */
+.btn-edit {
+    padding: 6px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.2s;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+/* --- END NEW --- */

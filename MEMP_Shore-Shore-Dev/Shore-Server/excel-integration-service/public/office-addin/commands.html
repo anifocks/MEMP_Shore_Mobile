@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+    <!-- Commands file - Manages taskpane lifecycle -->
+    <script>
+        let taskpaneCheckInterval = null;
+        
+        Office.onReady(() => {
+            console.log('✅ Commands initialized - Taskpane monitoring active');
+            
+            // Monitor if taskpane gets closed and alert user
+            taskpaneCheckInterval = setInterval(async () => {
+                try {
+                    await Excel.run(async (context) => {
+                        // If we can run Excel code, taskpane is open
+                        console.log('✅ Taskpane is active');
+                    });
+                } catch (error) {
+                    console.warn('⚠️ Taskpane may have been closed:', error.message);
+                }
+            }, 10000);
+        });
+    </script>
+</body>
+</html>

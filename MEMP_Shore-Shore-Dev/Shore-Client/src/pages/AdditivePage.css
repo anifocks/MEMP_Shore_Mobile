@@ -1,0 +1,117 @@
+/* --- LAYOUT & CONTAINER --- */
+.additive-page-container {
+    padding: 20px;
+    background-color: transparent !important; /* Allow background to show */
+    min-height: 100vh;
+}
+
+/* --- HEADER SECTION --- */
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.95); /* Glass effect */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+}
+
+.header-actions h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* --- BUTTONS (Global) --- */
+.btn-add {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-add:hover { background-color: #218838; }
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-secondary:hover { background-color: #5a6268; }
+
+/* --- TABLE STYLES --- */
+.table-container {
+    background: rgba(255, 255, 255, 0.95); /* Glass effect */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.memp-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.memp-table th, .memp-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.memp-table th {
+    background-color: rgba(248, 249, 250, 0.8);
+    color: #495057;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.memp-table tr:hover { background-color: rgba(241, 243, 245, 0.6); }
+
+/* Icon Buttons in Table */
+.btn-icon {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.btn-icon.view:hover { background-color: #e2e6ea; color: #007bff; }
+.btn-icon.edit:hover { background-color: #fff3cd; color: #856404; }
+.btn-icon.delete:hover { background-color: #f8d7da; color: #721c24; }
+
+/* Loading State */
+.loading-state {
+    text-align: center;
+    padding: 40px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    font-size: 1.1rem;
+}
+
+/* Filter Input */
+.filter-input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    outline: none;
+    min-width: 130px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.filter-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.1);
+}

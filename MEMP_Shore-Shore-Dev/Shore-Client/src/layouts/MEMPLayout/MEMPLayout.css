@@ -1,0 +1,85 @@
+.memp-app-layout-container {
+  display: flex;
+  min-height: 100vh;
+  background: transparent !important; /* CRITICAL */
+}
+
+.memp-app-content-wrapper {
+  flex-grow: 1;
+  margin-left: 270px;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease-in-out;
+  background-color: transparent !important; /* CRITICAL */
+}
+
+.memp-app-content-wrapper.sidebar-collapsed {
+  margin-left: 70px;
+}
+
+.memp-app-header {
+  background: linear-gradient(to right, rgb(90, 135, 233), rgb(60, 128, 237));
+  color: white;
+  padding: 0 20px;
+  height: 80px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky; 
+  top: 0;
+  z-index: 1000; 
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-action-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.header-action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header-team-logo {
+  height: 35px;
+  width: auto;
+}
+
+.header-app-title {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.memp-app-layout-content {
+  flex-grow: 1;
+  padding: 20px 25px; 
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
